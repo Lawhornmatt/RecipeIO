@@ -58,7 +58,14 @@ This project was made in 2022 by Group Two
 
 This project was made through the contributions of:
 
-      House of Stark is: Matt Lawhorn, Nick, Alex, Andrew, Joseph, Samuel, and Thomas
+      House of Stark is: 
+      *Matt Lawhorn 
+      *Nick 
+      *Alex
+      *Andrew
+      *Joseph
+      *Samuel
+      *Thomas
 
 ## LICENSE:
 
