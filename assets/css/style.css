@@ -1,0 +1,63 @@
+:root {
+
+    --bkgrnd-dark: #272838;
+    --main-redwood: #9B5D59;
+    --main-bufftan: #F3DE8A;
+    --highlight-tang: #EB9486;
+    --highlight-smoke: #7E7F9A;
+    --fnt-clr-wht: #f9f8f8;
+    }
+    
+    
+    /*  =========================  
+            GENERAL ELEMENTS
+        ========================= */
+    
+    body {
+      background-color: var(--bkgrnd-dark);
+      color: var(--fnt-clr-wht);
+    }
+    
+    
+    /*  =========================  
+          GENERAL CLASSES (think Bootstrap)
+        ========================= */
+    
+    /* === All Flexbox Function === */
+    
+    /* === All Borderstyle === */
+    
+    
+    /*  =========================  
+            SPECIFIC CLASSES (think Javascript)
+        ========================= */
+    
+    /* Make every div a button */
+    
+    
+    
+    /*  =========================  
+                  IDs
+        ========================= */
+    
+    /* === HEADER === */
+    
+    /* === NAV === */
+    
+    /* === BODY === */
+    /* Specific Button */
+    /* Specific Div */
+    
+    /* === FOOTER === */
+    
+    
+    /*  =========================  
+            ACCESSIBILITY
+        ========================= */
+    @media (max-width: 690px) {
+        
+    }
+    
+    @media (max-width: 500px) {
+        
+    }
