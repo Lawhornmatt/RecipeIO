@@ -1,8 +1,8 @@
 const loginPage = async (event) => {
     event.preventDefault();
   
-    const email = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
   
     if (email && password) {
       const response = await fetch('', {
@@ -19,12 +19,12 @@ const loginPage = async (event) => {
     }
   };
   
-  const signup = async (event) => {
+  const signupPage = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('').value.trim();
-    const email = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const username = document.querySelector('#username').value.trim();
+    const email = document.querySelector('#signupEmail').value.trim();
+    const password = document.querySelector('#signupPassword').value.trim();
   
     if (username && email && password) {
       const response = await fetch('', {
@@ -43,9 +43,9 @@ const loginPage = async (event) => {
   
   document
     .querySelector('')
-    .addEventListener('submit', loginFormHandler);
+    .addEventListener('submit', loginPage);
   
   document
     .querySelector('')
-    .addEventListener('submit', signupFormHandler);
+    .addEventListener('submit', signupPage);
   
