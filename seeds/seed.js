@@ -1,26 +1,16 @@
 const sequelize = require('../config/connection');
-const { User, Recipe } = require('../models');
+//const { Book, BookRecipe, Ingredient, Recipe, User } = require('../models');
+const recipeData = require('./recipeData');
+const userData = require('./userData');
+const bookData = require('./bookData');
+const bookRecipe = require('./BookRecipeData')
 
-const userData = require('./userData.json');
-const recipeData = require('./recipeData.json');
-
-const seedDatabase = async() => {
+async function seedDatabase() {
     await sequelize.sync({ force: true });
-
-    const users = await User.bulkCreate(userData, {
-        individualHooks: true,
-        returning: true,
-    });
-
-    for (const recipe of recipeData) {
-        await Recipe.create({
-            ...recipe,
-            // need to get rid of randomization
-            user_id: users[Math.floor(Math.random() * users.length)].id,
-        });
-    }
-
-    process.exit(0);
-};
+    await userData();
+    await bookData();
+    await recipeData();
+    await bookRecipe();
+}
 
 seedDatabase();

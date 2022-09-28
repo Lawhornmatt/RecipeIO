@@ -32,4 +32,4 @@ Ingredient.init({
     modelName: 'ingredient',
 });
 
-module.exports = User;
+module.exports = Ingredient;
