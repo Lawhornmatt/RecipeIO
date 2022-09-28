@@ -1,18 +1,22 @@
-const user = require('./User');
-const book = require('./book');
-const recipe = require('./recipe');
+const User = require('./User');
+const Book = require('./Book');
+const Recipe = require('./Recipe');
+const BookRecipe = require('./BookRecipe');
 
-book.blongsTo(user, {foreignKey: 'user_id'});
+Book.belongsTo(User, { foreignKey: 'user_id' });
 
-book.hasMany(recipe, {
+Book.hasMany(Recipe, {
     foreignKey: 'book_id',
     onDelete: 'CASCADE'
 });
 
-recipe.belongsToMany(book);
+Recipe.belongsToMany(Book, {
+    through: BookRecipe,
+});
 
-modeule.exports = {
-    user,
-    book,
-    recipe,
+module.exports = {
+    User,
+    Book,
+    Recipe,
+    BookRecipe
 };
