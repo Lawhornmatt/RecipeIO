@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light&display=swap');
+
+
 :root {
 
     --main-bkgrd: #272838;
@@ -55,7 +58,8 @@
 }
 
 .seeMe {
-    background-color: var(--undr-redwood);
+    background-color: var(--main-bufftan);
+    color: var(--undr-bkgrd);
 }
 
 .seeMe2 {
@@ -87,8 +91,22 @@
     border-color: var(--undr-redwood);
     border-radius: .5rem;
 }
-    
-    
+
+    /*  =========================  
+                  CLOUDS
+                  https://lauryndbrown.github.io/2017/06/08/creating-clouds-in-css.html
+        ========================= */
+
+.cloud{ 
+   margin-top:1rem;
+   width:350px;
+   height:auto;
+   box-shadow: 10px 10px rgba(0,0,0,0.2);
+   border-radius:100px;
+   /* font-family: 'Shadows Into Light', cursive; */
+   font-family: 'Sacramento', cursive;
+   font-size: 3rem;
+}
     
     /*  =========================  
                   IDs
