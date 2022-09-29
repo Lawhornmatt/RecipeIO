@@ -61,21 +61,14 @@ a.nostyle:visited {
             SPECIFIC CLASSES (think Javascript)
         ========================= */
 
-.navbarBkgrnd {
-    background-color: var(--main-font);
-    
-}
-.rounded {
-    border-radius: .5rem;
+/* == Main Background Colors == */
+
+.mainBkgrnd {
+    background-color: var(--main-bkgrd);
 }
 
 .mainBufftan {
     background-color: var(--main-bufftan);
-    color: var(--undr-bkgrd);
-}
-
-.mainSmoke {
-    background-color: var(--main-smoke);
     color: var(--undr-bkgrd);
 }
 
@@ -84,24 +77,98 @@ a.nostyle:visited {
     color: var(--undr-bkgrd);
 }
 
+.mainSmoke {
+    background-color: var(--main-smoke);
+    color: var(--undr-bkgrd);
+}
+
+.navbarBkgrnd {
+    background-color: var(--main-font);
+}
+
+/* == Saturated Background Colors == */
+
 .satBkgrnd {
     background-color: var(--sat-bkgrd);
+}
+
+.satRedwood {
+    background-color: var(--sat-redwood);
+}
+
+.satBufftan {
+    background-color: var(--sat-bufftan);
+    color: var(--undr-bkgrd);
+}
+
+.satTang {
+    background-color: var(--sat-tang);
+}
+
+.satTangDrk {
+    background-color: var(--sat-tang);
+    color: var(--undr-bkgrd);
 }
 
 .satSmoke {
     background-color: var(--sat-smoke);
 }
 
-.seeMe4 {
+.satFont {
+    background-color: var(--sat-font);
+    color: var(--undr-bkgrd);
+}
+
+/* == Undertoned Background Colors == */
+
+.undrBkgrnd {
+    background-color: var(--undr-bkgrd);
+}
+
+.undrRedwood {
+    background-color: var(--undr-redwood);
+}
+
+.undrBufftan {
+    background-color: var(--undr-bufftan);
+}
+
+.undrTang {
+    background-color: var(--undr-tang);
+}
+
+.undrSmoke {
+    background-color: var(--undr-smoke);
+}
+
+.undrFont {
+    background-color: var(--undr-font);
+}
+
+/* seeMe4 might be removable  */
+/* .seeMe4 { 
     background-color: var(--main-tang);
     border: .25rem solid;
     border-color: var(--sat-bkgrd);
     color: var(--undr-bkgrd)
+} */
+
+.rounded {
+    border-radius: .5rem;
 }
+
+ /* ==== Image Classes ==== */
 
 .idealIMG {
     display: block;
     max-height:75vh;
+    width: auto;
+    height: auto;
+}
+
+.idealIMGsmol {
+    display: block;
+    max-height:25vh;
     width: auto;
     height: auto;
 }
