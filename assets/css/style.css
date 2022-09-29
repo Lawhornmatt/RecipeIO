@@ -31,10 +31,21 @@
             GENERAL ELEMENTS
         ========================= */
     
-    body {
-      background-color: var(--main-redwood);
-      color: var(--main-font);
-    }
+body {
+  background-color: var(--main-redwood);
+  color: var(--main-font);
+}
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    /* cursor: auto; */
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    /* cursor: auto; */
+}
     
     
     /*  =========================  
@@ -67,9 +78,7 @@
 }
 
 .seeMe3 {
-    background-color: var(--main-smoke);
-    border: .25rem solid;
-    border-color: var(--undr-redwood);
+    background-color: var(--main-tang);
 }
 
 .seeMe4 {
@@ -106,6 +115,18 @@
    /* font-family: 'Shadows Into Light', cursive; */
    font-family: 'Sacramento', cursive;
    font-size: 3rem;
+}
+
+.cloudSml{ 
+   margin-top:1rem;
+   width:250px;
+   height:auto;
+   box-shadow: 10px 10px rgba(0,0,0,0.2);
+   border-radius:100px;
+}
+
+.lightLinks {
+    color: var(--main-font);
 }
     
     /*  =========================  
