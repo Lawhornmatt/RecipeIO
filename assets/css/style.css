@@ -50,13 +50,12 @@
 .navbarBkgrnd {
     background-color: var(--main-font);
 }
-.navbarRounded {
+.rounded {
     border-radius: .5rem;
-    padding: .5rem;
 }
 
 .seeMe {
-    background-color: #05072a;
+    background-color: var(--undr-redwood);
 }
 
 .seeMe2 {
@@ -76,6 +75,18 @@
     color: var(--undr-bkgrd)
 }
 
+.idealIMG {
+    display: block;
+    max-height:75vh;
+    width: auto;
+    height: auto;
+}
+
+.imgBorder {
+    border: .25rem solid;
+    border-color: var(--undr-redwood);
+    border-radius: .5rem;
+}
     
     
     
