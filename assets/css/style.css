@@ -29,7 +29,7 @@
         ========================= */
     
     body {
-      background-color: var(--main-smoke);
+      background-color: var(--main-redwood);
       color: var(--main-font);
     }
     
@@ -46,10 +46,36 @@
     /*  =========================  
             SPECIFIC CLASSES (think Javascript)
         ========================= */
-    
+
 .navbarBkgrnd {
     background-color: var(--main-font);
 }
+.navbarRounded {
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.seeMe {
+    background-color: #05072a;
+}
+
+.seeMe2 {
+    background-color: var(--main-smoke);
+}
+
+.seeMe3 {
+    background-color: var(--main-smoke);
+    border: .25rem solid;
+    border-color: var(--undr-redwood);
+}
+
+.seeMe4 {
+    background-color: var(--main-tang);
+    border: .25rem solid;
+    border-color: var(--sat-bkgrd);
+    color: var(--undr-bkgrd)
+}
+
     
     
     
