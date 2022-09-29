@@ -1,11 +1,26 @@
 :root {
 
-    --bkgrnd-dark: #272838;
+    --main-bkgrd: #272838;
     --main-redwood: #9B5D59;
     --main-bufftan: #F3DE8A;
-    --highlight-tang: #EB9486;
-    --highlight-smoke: #7E7F9A;
-    --fnt-clr-wht: #f9f8f8;
+    --main-tang: #EB9486;
+    --main-smoke: #7E7F9A;
+    --main-font: #f9f8f8;
+
+    --main-bkgrd: #0A0f57;
+    --main-redwood: #de2417;
+    --main-bufftan: #fce483;
+    --main-tang: #fa8775;
+    --main-smoke: #343ae5;
+    --main-font: #f9f8f8;
+
+    --main-bkgrd: #272838;
+    --main-redwood: #9B5D59;
+    --main-bufftan: #F3DE8A;
+    --main-tang: #EB9486;
+    --main-smoke: #7E7F9A;
+    --main-font: #f9f8f8;
+
     }
     
     
