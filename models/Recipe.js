@@ -15,14 +15,10 @@ Recipe.init({
         allowNull: false,
     },
     ingredients: {
-        type: DataTypes.STRING
+        type: DataTypes.TEXT
     },
-    book_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'book',
-            key: 'id',
-        }
+    directions: {
+        type: DataTypes.TEXT,
     }
 }, {
     sequelize,
@@ -32,4 +28,4 @@ Recipe.init({
     modelName: 'recipe',
 });
 
-module.exports = User;
+module.exports = Recipe;
