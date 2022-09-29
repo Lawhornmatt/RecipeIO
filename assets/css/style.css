@@ -10,7 +10,7 @@
     --main-smoke: #7E7F9A;
     --main-font: #f9f8f8;
 
-    --sat-bkgrd: #0A0f57;
+    --sat-bkgrd: #171b58;
     --sat-redwood: #de2417;
     --sat-bufftan: #fce483;
     --sat-tang: #fa8775;
@@ -63,6 +63,7 @@ a.nostyle:visited {
 
 .navbarBkgrnd {
     background-color: var(--main-font);
+    
 }
 .rounded {
     border-radius: .5rem;
@@ -75,10 +76,16 @@ a.nostyle:visited {
 
 .seeMe2 {
     background-color: var(--main-smoke);
+    color: var(--undr-bkgrd);
 }
 
 .seeMe3 {
     background-color: var(--main-tang);
+    color: var(--undr-bkgrd);
+}
+
+.satBkgrnd {
+    background-color: var(--sat-bkgrd);
 }
 
 .seeMe4 {
@@ -117,6 +124,26 @@ a.nostyle:visited {
    font-size: 3rem;
 }
 
+.cloudTitle{ 
+   margin-top:1rem;
+   width:350px;
+   height:auto;
+   box-shadow: 10px 10px rgba(0,0,0,0.2);
+   border-radius:100px;
+   font-size: 3rem;
+}
+
+.cloud{ 
+   margin-top:1rem;
+   width:350px;
+   height:auto;
+   box-shadow: 10px 10px rgba(0,0,0,0.2);
+   border-radius:100px;
+   /* font-family: 'Shadows Into Light', cursive; */
+   font-family: 'Sacramento', cursive;
+   font-size: 3rem;
+}
+
 .cloudSml{ 
    margin-top:1rem;
    width:250px;
@@ -129,6 +156,11 @@ a.nostyle:visited {
     color: var(--main-font);
 }
     
+    /*  =========================  
+                  IDs
+        ========================= */
+
+
     /*  =========================  
                   IDs
         ========================= */
