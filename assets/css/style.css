@@ -69,23 +69,27 @@ a.nostyle:visited {
     border-radius: .5rem;
 }
 
-.seeMe {
+.mainBufftan {
     background-color: var(--main-bufftan);
     color: var(--undr-bkgrd);
 }
 
-.seeMe2 {
+.mainSmoke {
     background-color: var(--main-smoke);
     color: var(--undr-bkgrd);
 }
 
-.seeMe3 {
+.mainTang {
     background-color: var(--main-tang);
     color: var(--undr-bkgrd);
 }
 
 .satBkgrnd {
     background-color: var(--sat-bkgrd);
+}
+
+.satSmoke {
+    background-color: var(--sat-smoke);
 }
 
 .seeMe4 {
