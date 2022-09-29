@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lawhornmatt/HouseStark_Project2/issues"
   },
-  "homepage": "https://github.com/Lawhornmatt/HouseStark_Project2#readme"
+  "homepage": "https://github.com/Lawhornmatt/HouseStark_Project2#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.1"
+  }
 }
