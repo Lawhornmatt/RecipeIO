@@ -7,19 +7,19 @@
     --main-smoke: #7E7F9A;
     --main-font: #f9f8f8;
 
-    --main-bkgrd: #0A0f57;
-    --main-redwood: #de2417;
-    --main-bufftan: #fce483;
-    --main-tang: #fa8775;
-    --main-smoke: #343ae5;
-    --main-font: #f9f8f8;
+    --sat-bkgrd: #0A0f57;
+    --sat-redwood: #de2417;
+    --sat-bufftan: #fce483;
+    --sat-tang: #fa8775;
+    --sat-smoke: #343ae5;
+    --sat-font: #fdf2f2;
 
-    --main-bkgrd: #272838;
-    --main-redwood: #9B5D59;
-    --main-bufftan: #F3DE8A;
-    --main-tang: #EB9486;
-    --main-smoke: #7E7F9A;
-    --main-font: #f9f8f8;
+    --undr-bkgrd: #05072a;
+    --undr-redwood: #6A120b;
+    --undr-bufftan: #b39005;
+    --undr-tang: #aa1c06;
+    --undr-smoke: #0f1377;
+    --undr-font: #cd2020;
 
     }
     
@@ -29,8 +29,8 @@
         ========================= */
     
     body {
-      background-color: var(--bkgrnd-dark);
-      color: var(--fnt-clr-wht);
+      background-color: var(--main-smoke);
+      color: var(--main-font);
     }
     
     
@@ -47,7 +47,9 @@
             SPECIFIC CLASSES (think Javascript)
         ========================= */
     
-    /* Make every div a button */
+.navbarBkgrnd {
+    background-color: var(--main-font);
+}
     
     
     
