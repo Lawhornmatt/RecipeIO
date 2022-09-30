@@ -179,6 +179,11 @@ a.nostyle:visited {
     border-radius: .5rem;
 }
 
+.ourLogo {
+    font-size: 4rem;
+}
+
+
     /*  =========================  
                   CLOUDS
                   https://lauryndbrown.github.io/2017/06/08/creating-clouds-in-css.html
@@ -223,14 +228,27 @@ a.nostyle:visited {
    border-radius:100px;
 }
 
+/* == Contact Us Classes == */
 .lightLinks {
     color: var(--main-font);
+}
+
+.custMssg {
+    min-height: 20vh;
+}
+
+.submitButton {
+    width: 40%;
+    align-self: center;
 }
     
     /*  =========================  
                   IDs
         ========================= */
 
+#contactForm {
+    height: 50vh;
+}
 
     /*  =========================  
                   IDs
