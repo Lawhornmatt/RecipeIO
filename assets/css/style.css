@@ -157,6 +157,12 @@ a.nostyle:visited {
     border-radius: .5rem;
 }
 
+.book {
+    border-radius: .5rem;
+    border-style: solid;
+    border-color: #05072a;
+}
+
  /* ==== Image Classes ==== */
 
 .idealIMG {
@@ -250,6 +256,7 @@ a.nostyle:visited {
     height: 50vh;
 }
 
+
     /*  =========================  
                   IDs
         ========================= */
@@ -262,6 +269,9 @@ a.nostyle:visited {
     /* Specific Button */
     /* Specific Div */
     
+#cookbookStats {
+    width: 35vw;
+}
     /* === FOOTER === */
     
     
