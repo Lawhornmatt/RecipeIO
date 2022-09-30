@@ -1,8 +1,8 @@
 const loginPage = async (event) => {
     event.preventDefault();
   
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
+    const email = document.querySelector('#loginEmail').value.trim();
+    const password = document.querySelector('#loginPassword').value.trim();
   
     if (email && password) {
       const response = await fetch('', {
@@ -42,10 +42,10 @@ const loginPage = async (event) => {
   };
   
   document
-    .querySelector('')
+    .querySelector('.loginForm')
     .addEventListener('submit', loginPage);
   
   document
-    .querySelector('')
+    .querySelector('.signupForm')
     .addEventListener('submit', signupPage);
   
