@@ -1,79 +1,97 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
+const {Book, Recipe, User} = require('../../models');
+const { request } = require('express');
 
+//LIST OF THE COOKBOOKS
+router.get('/books',withAuth, async (req, res) => {
+  try {
+      const allBooks = await Book.findAll( {
+        where: {
+          user_id: req.session.user_id
+        }
+      });
 
+      const books = allBooks.map((book) => book.get({plain: true}));
 
+      res.render('myBooks', {
+        books,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
 
+//CHOSEN BOOK
+router.get('/books/:name',withAuth, async (req, res) => {
 
-
-router.get('/books',withAuth, (req, res) => {
 
     try {
-            //replace this with the correct handlebars path
-            //       VVVVVVVVVVV
-        res.render('TEMP_RECIPES', {
-          logged_in: req.session.logged_in,
-        });
-      } catch (err) {
-        res.status(500).json(err);
-      }
+      const desiredBook = await Book.findOne( { 
+        where: { 
+          title: req.params.name 
+        } 
+      });
 
-    //LIST OF THE COOKBOOKS
+      const book = desiredBook.get({plain: true});
 
-
-  });
-
-  
-router.get('/books/:name',withAuth, (req, res) => {
-
-
-    try {
-            //replace this with the correct handlebars path
-            //       VVVVVVVVVVV
         res.render('home', {
+          book,
           logged_in: req.session.logged_in,
         });
       } catch (err) {
         res.status(500).json(err);
       }
-    //CHOSEN BOOK
+});
 
+//COOKBOOK LIST OF RECIPES
+router.get('/books/:name/recipes',withAuth, async (req, res) => {
 
+  try {
+      const allReciepes = await Recipe.findAll( {
+        where: {
+          user_id: req.params.user_id
+        }
+      });
+
+      const recipes = allReciepes.map((reciepe) => reciepe.get({plain: true}));
+
+      res.render('TEMP_RECIPES', {
+        recipes,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+//INDIVIDUAL RECIPE
+router.get('/books/:name/recipes/:id',withAuth, async (req, res) => {
+
+  const desiredBook = await Book.findOne( { 
+    where: { 
+      title: req.params.name 
+    } 
   });
 
-  router.get('/books/:name/recipes',withAuth, (req, res) => {
-
-
-    try {
-                //replace this with the correct handlebars path
-            //       VVVVVVVVVVV
-        res.render('TEMP_RECIPES', {
-          logged_in: req.session.logged_in,
-        });
-      } catch (err) {
-        res.status(500).json(err);
+  try {
+    const desiredRecipe = await Book.findOne( {
+      where: {
+        name: req.params.name
       }
-    //COOKBOOK LIST OF RECIPES
+    });
 
+    const myRecipe = desiredRecipe.get({plain: true});
 
-  });
-
-  router.get('/books/:name/recipes/:id',withAuth, (req, res) => {
-
-    try {
-            //replace this with the correct handlebars path
-            //       VVVVVVVVVVV
-        res.render('home', {
-          logged_in: req.session.logged_in,
-        });
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    
-    //INDIVIDUAL RECIPE
-
-
-  });
+      res.render('home', {
+        myRecipe,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
 
 
 
