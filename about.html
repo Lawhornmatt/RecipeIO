@@ -104,10 +104,26 @@
       <!-- I recommend replacing this static image with
       a slideshow carousel of food pics, e.g.:
       https://www.w3schools.com/howto/howto_js_slideshow.asp -->
-      <div class="col-md-auto align-self-center justify-content-center align-items-center rounded">
-        <div class="row justify-content-center align-items-center">
-          <img width="1200" height="1600" src="./assets/images/Apple-Crisp-V3-768x1024.jpg" alt="Some cute cozy recipe photo" class="idealIMGsmol align-self-center imgBorder">
+      <div class="col-md-auto align-self-start justify-content-start">
+
+        <div class="row satFont justify-content-center align-items-start imgBorder">
+          <img width="1200" height="1600" src="./assets/images/NewLogo.png" alt="Some cute cozy recipe photo" class="idealIMGsmol align-self-center">
+          <h1 class="align-self-center ourLogo">Contact Us</h1>
         </div>
+
+        <div class="undrBkgrnd mt-5 p-2 rounded">
+          <form class="d-flex flex-column justify-content-between" id="contactForm">
+            <p>Please provide us with:</p>
+            <input type="text" id="customerName" name="customerName" placeholder="Your name..">
+
+            <input type="text" id="customerEmail" name="customerEmail" placeholder="Your email..">
+
+            <textarea id="customerMssg" name="customerMssg" placeholder="Tell us about..." class="custMssg"></textarea>
+            
+            <input type="submit" value="Submit" class="submitButton">
+          </form>
+        </div>
+
       </div>
     </div>
   </main>

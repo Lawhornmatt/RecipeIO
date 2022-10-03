@@ -157,6 +157,12 @@ a.nostyle:visited {
     border-radius: .5rem;
 }
 
+.book {
+    border-radius: .5rem;
+    border-style: solid;
+    border-color: #05072a;
+}
+
  /* ==== Image Classes ==== */
 
 .idealIMG {
@@ -178,6 +184,11 @@ a.nostyle:visited {
     border-color: var(--undr-redwood);
     border-radius: .5rem;
 }
+
+.ourLogo {
+    font-size: 4rem;
+}
+
 
     /*  =========================  
                   CLOUDS
@@ -223,13 +234,27 @@ a.nostyle:visited {
    border-radius:100px;
 }
 
+/* == Contact Us Classes == */
 .lightLinks {
     color: var(--main-font);
+}
+
+.custMssg {
+    min-height: 20vh;
+}
+
+.submitButton {
+    width: 40%;
+    align-self: center;
 }
     
     /*  =========================  
                   IDs
         ========================= */
+
+#contactForm {
+    height: 50vh;
+}
 
 
     /*  =========================  
@@ -244,6 +269,9 @@ a.nostyle:visited {
     /* Specific Button */
     /* Specific Div */
     
+#cookbookStats {
+    width: 35vw;
+}
     /* === FOOTER === */
     
     
