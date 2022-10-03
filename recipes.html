@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <meta name="author" content="House of Stark">
+  <meta name="description" content="This application was made for Project Two of the UT Austin Coding Bootcamp">
+
+  <title>RecipeIO</title>
+  <link rel="icon" href="/images/default.ico" type="image/x-icon">
+
+  <!-- Stylizing  -->
+  <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+  <!-- Must use lines 17, 20, 21, & 22 for this simple html page. 
+  When we make a node.js version, like our main project,
+  see here: https://github.com/twbs/bootstrap-npm-starter/blob/main/index.html -->
+
+  <script src="/js/logout.js" defer></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md justify-content-between navbar-light navbarBkgrnd">
+      <a class="navbar-brand navbarButtonBkgrnd" href="#">RecipeIO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li> 
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li> 
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+              View Recipe Books
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Recipe Book 1</a>
+              <a class="dropdown-item" href="#">Recipe Book 2</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New Recipe Book</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">View Recipes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">New Recipe</a>
+          </li>
+
+        </ul>
+
+        <form class="form-inline">
+          <button class="btn btn-outline-dark" type="button">Log Out</button>
+        </form>
+      </div>
+    </nav>
+
+  <main class="container-fluid mt-5">
+     <div class="row justify-content-around">
+      <div class="col-5 rounded mt-1 mb-3">
+        <div class="mainSmoke row justify-content-center align-items-center mb-5 cloud">
+          <p>My Recipes</p>
+          
+
+
+    
+          
+
+
+
+
+
+
+
+        </div>
+
+
+        <div class="card mainTang cloud" style="width: 18rem;">
+            <img class="card-img-top" src="./assets/images/chocolate-chip-cookies.jpeg" alt="some cute cozy recipe photo">
+            <div class="card-body text-center">
+              <h4><a href="#" class="nostyle lightLinks text-center">Chocolate Chip Cookies</a></h4>
+            </div>
+          </div>
+
+
+
+
+
+
+        <div class="row justify-content-around recipes-container">
+        <div class="row justify-content-center mb-5">
+          <div class="mainTang row justify-content-center  text-center cloud">
+            <a class="nostyle lightLinks" href="#">Choc. Chip Cookies</a> 
+            <img width="260" height="220" src="./assets/images/chocolate-chip-cookies.jpeg" alt="Some cute cozy recipe photo" class="align-self-center imgBorder">   <br><br>
+          </div></div><br>
+
+          <div class="row justify-content-center mb-5">
+          <div class="mainTang row justify-content-center cloud text-center">
+            <a class="nostyle lightLinks" href="#">Mac and Cheese</a>
+            <img width="260" height="220" src="./assets/images/mac-cheese.jpeg" alt="Some cute cozy recipe photo" class="align-self-center imgBorder">       
+          </div></div><br>
+          <div class="row justify-content-center mb-5">
+          <div class="mainTang row justify-content-center cloud text-center">
+            <a class="nostyle lightLinks" href="#">Chicken and Waffles</a>
+            <img width="260" height="220" src="./assets/images/chicken-and-waffles1.jpeg" alt="Some cute cozy recipe photo" class="align-self-center imgBorder">
+          </div></div><br>
+
+          <div class="row justify-content-center mb-5">
+          <div class="mainTang row justify-content-center cloud text-center">
+            <a class="nostyle lightLinks" href="#">Bowl of Cereal</a>
+            <img width="260" height="220" src="./assets/images/cereal.jpeg" alt="Some cute cozy recipe photo" class="align-self-center imgBorder">
+          </div></div><br>
+        </div>
+</div>
+      
+          </div>
+        </div>
+      </div>
+
+      
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+  </footer>
+
+</body>
+
+</html>
