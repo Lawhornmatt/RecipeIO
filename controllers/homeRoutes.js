@@ -1,13 +1,21 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const User = require('../models/User.js');
+const {Book, Recipe, User} = require('../models');
 const bcrypt = require('bcrypt')
 
 router.get('/', withAuth, async (req, res) => {
   try {
+    let { count, rows } = await Recipe.findAndCountAll({});
+    
+    const randRecipe = Math.floor(Math.random() * count) + 1;
+    const recipeData = await Recipe.findByPk(randRecipe);
+
+    // Serialize data so the template can read it
+    let recipe = recipeData.get({ plain: true });
 
     res.render('home', {
-      logged_in: req.session.logged_in,
+        recipe,
+        logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -22,8 +30,7 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/register',withAuth, (req, res) => {
 
   try {
-          //replace this with the correct handlebars path
-          //       VVVVVVVVVVV
+      //replace this with the correct handlebars path
       res.render('signup', {
         logged_in: req.session.logged_in,
       });
@@ -45,13 +52,12 @@ router.post('/register', async (req, res) =>{
       res.json({status:'error',message: err.message})
   }
   
-})
+});
 
 router.get('/contact',withAuth, (req, res) => {
 
   try {
-          //replace this with the correct handlebars path
-          //       VVVVVVVVVVV
+      //replace this with the correct handlebars path
       res.render('contact', {
         logged_in: req.session.logged_in,
       });
@@ -63,13 +69,6 @@ router.get('/contact',withAuth, (req, res) => {
 
 
 });
-
-
-
-
-
-
-
 
 
 router.get('/about',withAuth, (req, res) => {
@@ -108,6 +107,7 @@ router.get('/login', (req, res) => {
 
 //LOGIN (AUTHENTICATE USER)
 router.post('/login', async (req, res) =>{
+  try {
   console.log(req.body)
   //Read name and password from req.body
   const email = req.body.email
@@ -122,7 +122,9 @@ router.post('/login', async (req, res) =>{
       }
   )
   if (!user){
-      res.json({status: 'error', message: 'Invalid Login'})
+    res
+      .status(400)
+      .json({status: 'error', message: 'Invalid Login'})
       return
   }
   if(await bcrypt.compare(password, user.password)){
@@ -131,10 +133,25 @@ router.post('/login', async (req, res) =>{
       res.json({status: 'error', message: 'Invalid Login'})
   }
 
-})
+  // saves user to the session
+  req.session.save(() => {
+    req.session.user_id = User.id;
+    req.session.logged_in = true;
+  });
+} catch (err) {
+  res.status(404).json(err);
+}
+});
 
-
-
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 
 module.exports = router;
