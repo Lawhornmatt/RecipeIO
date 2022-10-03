@@ -135,7 +135,7 @@ router.post('/login', async (req, res) =>{
 
   // saves user to the session
   req.session.save(() => {
-    req.session.user_id = User.id;
+    req.session.user_id = user.id;
     req.session.logged_in = true;
   });
 } catch (err) {
