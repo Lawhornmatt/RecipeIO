@@ -14,7 +14,7 @@ router.get('/books',withAuth, async (req, res) => {
 
       const books = allBooks.map((book) => book.get({plain: true}));
 
-      res.render('myBooks', {
+      res.render('books', {
         books,
         logged_in: req.session.logged_in,
       });
