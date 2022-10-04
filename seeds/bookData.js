@@ -1,15 +1,28 @@
 const { Book } = require('../models');
 
-const bookData = [{
-        name: 'Breakfast',
+const bookData = [
+    { //1
+        name: 'BillyBoy Book 1',
         user_id: 1
     },
-    {
-        name: 'Lunch',
+    { //2
+        name: 'BillyBoy Book: The Sequel',
         user_id: 1
     },
-    {
-        name: 'Dinner',
+    { //3
+        name: 'Charlie Breakfast',
+        user_id: 2
+    },
+    { //4
+        name: 'Charlie Dinner',
+        user_id: 2
+    },
+    { //5
+        name: 'SnaowoReal Book Deux',
+        user_id: 1
+    },
+    { //6
+        name: 'SnaowoReal Book Drei',
         user_id: 1
     }
 ];
