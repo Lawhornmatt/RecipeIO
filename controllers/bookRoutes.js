@@ -30,8 +30,6 @@ router.get('/',withAuth, async (req, res) => {
 
 //CHOSEN BOOK
 router.get('/:id',withAuth, async (req, res) => {
-
-
     try {
       const desiredBook = await Book.findOne( { 
         where: {

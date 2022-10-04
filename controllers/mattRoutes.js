@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt')
 router.get('/newbook',withAuth, (req, res) => {
 
     try {
-        res.render('newbook', {
+        res.render('newBook', {
           logged_in: req.session.logged_in,
         });
     } catch (err) {

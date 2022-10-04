@@ -69,20 +69,24 @@ router.post('/register', async (req, res) =>{
   }
 });
 
-router.get('/account',withAuth, (req, res) => {
-
+router.get('/account',withAuth, async (req, res) => {
   try {
-      //replace this with the correct handlebars path
-      res.render('account', {
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    const desiredAccount = await User.findOne( { 
+      where: {
+        id: req.session.user_id
+    }});
 
-  //LIST OF THE COOKBOOKS
+    const accountData = desiredAccount.get({plain: true});
 
+    // res.json(bookData);
 
+    res.render('account', {
+      accountData,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 
