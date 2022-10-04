@@ -1,15 +1,18 @@
-name: Move assigned card
-run-name: ${{ github.actor }}, issue has been assigned and moved to the Teams in-progress column
-on:
-  issues:
-    types: [labeled]
-jobs:
-  move-assigned-card:
-    if: github.event.label.name == 'TEAM 1'
-    runs-on: ubuntu-latest
-    steps:
-       - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
-         with:
-          project: RecipeIO
-          column: 'In Progress: TEAM 1'
-          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+# Could not get GitHub Actions and Workflows to function properly
+# But I am keeping this here in case I do
+
+# name: Move assigned card
+# run-name: ${{ github.actor }}, issue has been assigned and moved to the Teams in-progress column
+# on:
+#   issues:
+#     types: [labeled]
+# jobs:
+#   move-assigned-card:
+#     if: github.event.label.name == 'TEAM 1'
+#     runs-on: ubuntu-latest
+#     steps:
+#        - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+#          with:
+#           project: RecipeIO
+#           column: 'In Progress: TEAM 1'
+#           repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
