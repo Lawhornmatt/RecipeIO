@@ -3,8 +3,13 @@ const withAuth = require('../utils/auth');
 const {Book, Recipe, User, BookRecipe} = require('../models');
 const bcrypt = require('bcrypt')
 
+
+
 // ===  NEW BOOK ROUTES ===
 
+
+
+// Look at the new book form
 router.get('/newbook',withAuth, (req, res) => {
 
     try {
@@ -16,12 +21,12 @@ router.get('/newbook',withAuth, (req, res) => {
     }
 });
 
+// Insert a new book associated with user into the Book table
 router.post('/newbook',withAuth, async (req, res) =>{
-    // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
     try {
         const bookData = await Book.create({
           name: req.body.name,
-          user_id: req.body.user_id,
+          user_id: req.session.user_id,
         });
   
         // console.log('POST /register | bookData' + bookData);
@@ -29,7 +34,7 @@ router.post('/newbook',withAuth, async (req, res) =>{
         req.session.save(() => {
           req.session.logged_in = true;
   
-          console.log(`status: 'ok', message: ${bookData.name} is created!`);
+          console.log(`\x1b[32mstatus: 'ok', message: ${bookData.name} is created!\x1b[0m`);
           res.redirect('/books');
         });
     }catch(err){
@@ -37,10 +42,14 @@ router.post('/newbook',withAuth, async (req, res) =>{
     }
 });
 
+
+
 // ===  NEW RECIPE ROUTES ===
 
-router.get('/newrecipe',withAuth, async (req, res) => {
 
+
+// == Look at the Recipe Form 
+router.get('/newrecipe',withAuth, async (req, res) => {
     try {
       const userBooks = await Book.findAll( {
         where: {
@@ -59,6 +68,7 @@ router.get('/newrecipe',withAuth, async (req, res) => {
     }
 });
 
+// == Creates a new recipe and it's associated BookRecipe tag 
 router.post('/newrecipe',withAuth, async (req, res) =>{
   console.log(`\x1b[32mPOST /newrecipe | req.body\x1b[0m` + JSON.stringify(req.body));
     // FIRST: Create the recipe in the recipe table
@@ -111,6 +121,9 @@ router.post('/newrecipe',withAuth, async (req, res) =>{
     }
 });
 
+
+// == CURRENTLY NON FUNCTIONAL AND UNACCESSIBLE TO USERS
+// TODO: add  some icon to books, like a gear, to click on and change their associated recipes
 router.post('/editbook',withAuth, async (req, res) =>{
     try {
         const bookData = await Book.create({

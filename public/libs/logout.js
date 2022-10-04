@@ -1,3 +1,7 @@
+  // ====================
+  //  LOG OUT
+  // ====================
+
 const logout = async () => {
     const response = await fetch('/logout', {
       method: 'POST',
@@ -13,8 +17,15 @@ const logout = async () => {
   
 document.querySelector('#logout').addEventListener('click', logout);
 
+
+  // ====================
+  //  GENERATE RECIPE
+  // ====================
+
 const genRecipe = async (event) => {
     event.preventDefault();
+
+    // console.log(`\x1b[32mRECIPE MAKER CLICKED\x1b[0m`);
   
     const name = document.querySelector('#recipe-name').value.trim();
     const ingredients = document.querySelector('#recipe-ingredients').value.trim();
@@ -25,6 +36,7 @@ const genRecipe = async (event) => {
 
     let bookAssign = [];
 
+    // Sourced from: https://codelearningpoint.com/post/How-to-get-multiple-checkbox-value-in-javascript
     async function getData() { // this function will get called when the save button is clicked
 
       checkBoxes.forEach(item => { // loop all the checkbox item
@@ -39,7 +51,7 @@ const genRecipe = async (event) => {
 
   
     if (name && ingredients && directions && bookAssign[0]) {
-      const response = await fetch('/matt/newrecipe', {
+      let response = await fetch('/matt/newrecipe', {
         method: 'POST',
         body: JSON.stringify({ name, ingredients, directions, bookAssign }),
         headers: { 'Content-Type': 'application/json' },
@@ -50,10 +62,10 @@ const genRecipe = async (event) => {
       if (response.ok) {
         document.location.replace('/recipes');
       } else {
-        alert('you may not sign up.');
+        alert('Recipe creation with book assignment aborted');
       }
     } else if (name && ingredients && directions) {
-      const response = await fetch('/matt/newrecipe', {
+      let response = await fetch('/matt/newrecipe', {
         method: 'POST',
         body: JSON.stringify({ name, ingredients, directions }),
         headers: { 'Content-Type': 'application/json' },
@@ -64,13 +76,57 @@ const genRecipe = async (event) => {
       if (response.ok) {
         document.location.replace('/recipes');
       } else {
-        alert('you may not sign up.');
+        alert('Recipe creation didnt');
       }
+    } else {
+      alert(`RUH ROH`);
+      console.log(`RUH ROH`);
     }
 };
-  
-document
-    .querySelector('#makeRecipe')
-    .addEventListener('click', genRecipe);
 
-// Sourced from: https://codelearningpoint.com/post/How-to-get-multiple-checkbox-value-in-javascript
+if (document.querySelector('#makeRecipe')) {
+  document
+      .querySelector('#makeRecipe')
+      .addEventListener('click', genRecipe);
+}
+
+
+
+  // ====================
+  //  GENERATE BOOK
+  // ====================
+
+const genBook = async (event) => {
+  event.preventDefault();
+  console.log(`\x1b[32mBOOK MAKER CLICKED\x1b[0m`);
+
+  const name = document.querySelector('#book-name').value.trim();
+ 
+
+  if (name) {
+    let response = await fetch('/matt/newbook', {
+      method: 'POST',
+      body: JSON.stringify({ name }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    // console.log(`\x1b[32mCreate Book buton is clicked\x1b[0m`);
+    // console.log(JSON.stringify({ response }))
+
+    if (response.ok) {
+      document.location.replace('/books');
+    } else {
+      alert('Book maker no work :(');
+    }
+  } else {
+    alert(`RUH ROH`);
+    console.log(`RUH ROH`);
+  }
+};
+
+
+if (document.querySelector('#makeBook')) {
+  document
+      .querySelector('#makeBook')
+      .addEventListener('click', genBook);
+}

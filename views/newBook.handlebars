@@ -32,10 +32,12 @@
       <div class = "card-header col-md-10 mainTang">
            <h2>Create Book</h2>
       </div>
-    <form class = "create-recipe-form">
+    <form class="create-recipe-form" id="newRecipeForm">
 
-        <label for ="recipe-name"> Book Name:</label><br>
-        <input type = "text" id="recipe-name" value="ThAtS A sPiCy MeEtabOl"/><br>
+        <div class="row">
+          <label for ="recipe-name"> Book Name:</label><br>
+          <input type = "text" id="book-name" name="name" value="tHaTs aSpIcy mEaTbOl"/><br>
+        </div>
 
         {{!-- <label for ="recipes-in-book">Choose the recipes you would like to have in this book.</label><br><br>
         <select id = "all-recipes" name="all-recipes">
