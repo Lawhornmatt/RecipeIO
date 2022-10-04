@@ -13,7 +13,7 @@ const BookRecipeData = [{
         book_id: 3,
     },
     {
-        recipe: 3,
+        recipe_id: 3,
         book_id: 2,
     }
 ];
