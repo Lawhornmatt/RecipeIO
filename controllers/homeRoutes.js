@@ -44,9 +44,9 @@ router.get('/register',withAuth, (req, res) => {
 
 });
 
+// create user
 router.post('/register', async (req, res) =>{
-  // create user
-  console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
+  // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
   try {
       const userData = await User.create({
         first_name: req.body.firstName,
@@ -56,16 +56,7 @@ router.post('/register', async (req, res) =>{
         password: req.body.password,
       });
 
-      console.log('POST /register | userData' + userData);
-
-      // if(!userData) {
-      //   res
-      //   .status(400)
-      //   .json({ message: 'userData inaccessible' });
-      // return;
-      // } else {
-      //   console.log('userData: ' + userData);
-      // }
+      // console.log('POST /register | userData' + userData);
 
       req.session.save(() => {
         req.session.user_id = userData.id;
@@ -76,7 +67,6 @@ router.post('/register', async (req, res) =>{
   }catch(err){
       res.status(400).json(err);
   }
-  
 });
 
 router.get('/contact',withAuth, (req, res) => {

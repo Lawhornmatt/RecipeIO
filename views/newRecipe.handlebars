@@ -1,0 +1,40 @@
+<main class="container-fluid mt-5">
+  <div class="row justify-content-around">
+
+    <div class="col-12 mt-3">
+      <div class = "card-header col-md-10 mainTang">
+           <h2>Create Recipe</h2>
+      </div>
+    <form class = "create-recipe-form">
+
+        <label for ="recipe-name"> Recipe Name:</label><br>
+        <input type = "text" id="recipe-name" value="Matts Test Recipe"/><br>
+
+        <label for ="recipe-ingredients">Ingredients:</label><br>
+        <input type ="text" id="recipe-ingredients" value="No sleep and a bunch of hardwork"/><br>
+
+        <label for ="recipe-directions">Directions:</label><br>
+        <input type ="text" id="recipe-directions" value="Mix it all together and whadaya get"><br>
+
+        {{!-- <label for ="recipe-picture">Picture:</label><br>
+        <input type ="file" name="recipe-picture" accept = "image/*"><br> --}}
+
+        {{!-- Need to loop through here and add a checkbox for every book user has  --}}
+        {{!-- <label for="breakfast-book">Breakfast</label><br>
+        <input type = "checkbox" id = "breakfast-book" name = "breakfast-book">
+
+        <label for="lunch-book">Lunch</label><br>
+        <input type = "checkbox" id = "lunch-book" name = "lunch-book">
+
+        <label for="breakfast-book">Dinner</label><br>
+        <input type = "checkbox" id = "dinner-book" name = "dinner-book"> --}}
+        <span>The above code will eventually be uncommented and you will be able to assign</span>
+        <span>a pre-existing book to a recipe here</span>
+
+        <div class="mainBufftan" id="makeRecipe">
+          <button class="btn" type="submit">Create Recipe</button>
+        </div>
+
+    </form>
+  </div>
+</main>
