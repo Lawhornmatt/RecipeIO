@@ -13,30 +13,49 @@ const logout = async () => {
   
 document.querySelector('#logout').addEventListener('click', logout);
 
-// const genRecipe = async (event) => {
-//     event.preventDefault();
+const genRecipe = async (event) => {
+    event.preventDefault();
   
-//     const name = document.querySelector('#recipe-name').value.trim();
-//     const ingredients = document.querySelector('#recipe-ingredients').value.trim();
-//     const directions = document.querySelector('#recipe-directions').value.trim();
-  
-//     if (name && ingredients && directions) {
-//       const response = await fetch('/newrecipe', {
-//         method: 'POST',
-//         body: JSON.stringify({ name, ingredients, directions }),
-//         headers: { 'Content-Type': 'application/json' },
-//       });
+    const name = document.querySelector('#recipe-name').value.trim();
+    const ingredients = document.querySelector('#recipe-ingredients').value.trim();
+    const directions = document.querySelector('#recipe-directions').value.trim();
 
-//       // console.log(JSON.stringify({ name, ingredients, directions }))
+    var newRecipeForm = document.getElementById('newRecipeForm');
+    var checkBoxes = newRecipeForm.querySelectorAll('input[type="checkbox"]');
+
+    let bookAssign = [];
+
+    async function getData() { // this function will get called when the save button is clicked
+
+      checkBoxes.forEach(item => { // loop all the checkbox item
+          if (item.checked) {  //if the check box is checked
   
-//       if (response.ok) {
-//         document.location.replace('/');
-//       } else {
-//         alert('you may not sign up.');
-//       }
-//     }
-// };
+              bookAssign.push(item.name);
+          }
+      })
+    };
+
+    await getData();
   
-// document
-//     .querySelector('#makeRecipe')
-//     .addEventListener('click', genRecipe);
+    if (name && ingredients && directions) {
+      const response = await fetch('/matt/newrecipe', {
+        method: 'POST',
+        body: JSON.stringify({ name, ingredients, directions, bookAssign }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      // console.log(JSON.stringify({ name, ingredients, directions }))
+  
+      if (response.ok) {
+        document.location.replace('/recipes');
+      } else {
+        alert('you may not sign up.');
+      }
+    }
+};
+  
+document
+    .querySelector('#makeRecipe')
+    .addEventListener('click', genRecipe);
+
+// Sourced from: https://codelearningpoint.com/post/How-to-get-multiple-checkbox-value-in-javascript

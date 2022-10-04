@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const {Book, Recipe, User} = require('../models');
+const {Book, Recipe, User, BookRecipe} = require('../models');
 const bcrypt = require('bcrypt')
 
 // ===  NEW BOOK ROUTES ===
@@ -60,24 +60,48 @@ router.get('/newrecipe',withAuth, async (req, res) => {
 });
 
 router.post('/newrecipe',withAuth, async (req, res) =>{
+  console.log(`\x1b[32mPOST /newrecipe | req.body\x1b[0m` + JSON.stringify(req.body));
+    // FIRST: Create the recipe in the recipe table
+    var newRecipeID;
+
     try {
         const recipeData = await Recipe.create({
           name: req.body.name,
           ingredients: req.body.ingredients,
           directions: req.body.directions,
+        }).then(function(info) {
+          // console.log(`\x1b[32mpost-create info: \x1b[0m` + info.id);
+          newRecipeID = info.id;
         });
   
-        // console.log('POST /register | bookData' + bookData);
-  
+
         req.session.save(() => {
           req.session.logged_in = true;
   
-          console.log(`status: 'ok', message: ${recipeData.name} is created!`);
+          console.log(`\x1b[32mstatus: 'ok', message: ==replace_me== is created!\x1b[0m`); // ${recipeData.name}
           res.redirect('/recipes');
         });
     }catch(err){
         res.status(400).json(err);
     }
+    console.log(`\x1b[32mpost-create info: \x1b[0m` + newRecipeID);
+    // SECOND: Create however many BookRecipe tags as necessary 
+  //   try {
+  //     const BRData = await BookRecipe.create({
+  //       book_id: req.body.bookAssign[0],
+  //       recipe_id: req.body.ingredients,
+  //     });
+
+
+  //     req.session.save(() => {
+  //       req.session.logged_in = true;
+
+  //       console.log(`status: 'ok', message: ${BRData.name} is created!`);
+  //       res.redirect('/recipes');
+  //     });
+  // }catch(err){
+  //     res.status(400).json(err);
+  // }
 });
 
 router.post('/editbook',withAuth, async (req, res) =>{
@@ -87,7 +111,7 @@ router.post('/editbook',withAuth, async (req, res) =>{
           user_id: req.body.user_id,
         });
   
-        // console.log('POST /register | bookData' + bookData);
+        // console.log('POST /editbook | bookData' + bookData);
   
         req.session.save(() => {
           req.session.logged_in = true;
