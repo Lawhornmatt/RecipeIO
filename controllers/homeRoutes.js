@@ -118,7 +118,7 @@ router.post('/login', async (req, res) =>{
  const user = await User.findOne(
       {
           where:{
-              email
+              email: email,
           }
       }
   )
@@ -139,7 +139,6 @@ router.post('/login', async (req, res) =>{
     res.json({ user: user, message: 'logged in now'});
   });
   console.log('session: ', req.session.user_id);
-  // console.log(req.session.logged_in, "outside");
 } catch (err) {
   res.status(404).json(err);
 }
