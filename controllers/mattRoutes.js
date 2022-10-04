@@ -29,7 +29,8 @@ router.post('/newbook',withAuth, async (req, res) =>{
         req.session.save(() => {
           req.session.logged_in = true;
   
-          res.json({status: 'ok', message:`${bookData.name} is created!`})
+          console.log(`status: 'ok', message: ${bookData.name} is created!`);
+          res.redirect('/books');
         });
     }catch(err){
         res.status(400).json(err);
@@ -71,7 +72,8 @@ router.post('/newrecipe',withAuth, async (req, res) =>{
         req.session.save(() => {
           req.session.logged_in = true;
   
-          res.json({status: 'ok', message:`${bookData.name} is created!`})
+          console.log(`status: 'ok', message: ${recipeData.name} is created!`);
+          res.redirect('/recipes');
         });
     }catch(err){
         res.status(400).json(err);

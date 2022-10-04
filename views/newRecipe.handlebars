@@ -5,22 +5,22 @@
       <div class = "card-header col-md-10 mainTang">
         <h2>Create Recipe</h2>
       
-        <form class = "create-recipe-form container-fluid">
+        <form class = "create-recipe-form container-fluid" action="/matt/newrecipe" method="POST">
           <div class="col-12">
-            
+
             <div class="row">
               <label for ="recipe-name"> Recipe Name:</label><br>
-              <input type = "text" id="recipe-name" value="Matts Test Recipe"/><br>
+              <input type = "text" id="recipe-name" name="name" value="Matts Test Recipe"/><br>
             </div>
 
             <div class="row">
               <label for ="recipe-ingredients">Ingredients:</label><br>
-              <input type ="text" id="recipe-ingredients" value="No sleep and a bunch of hardwork"/><br>
+              <input type ="text" id="recipe-ingredients" name="ingredients" value="No sleep and a bunch of hardwork"/><br>
             </div>
             
             <div class="row">
               <label for ="recipe-directions">Directions:</label><br>
-              <input type ="text" id="recipe-directions" value="Mix it all together and whadaya get"><br>
+              <input type ="text" id="recipe-directions" name="directions" value="Mix it all together and whadaya get"><br>
             </div>
 
             {{#each preBookData as |book|}}
