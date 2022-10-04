@@ -2,6 +2,9 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const {Book, Recipe, User} = require('../models');
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const JWT_SECRET = process.env.JWT_SECRET
+
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -18,6 +21,7 @@ router.get('/', withAuth, async (req, res) => {
         logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err.message)
     res.status(500).json(err);
   }
 });
@@ -128,7 +132,13 @@ router.post('/login', async (req, res) =>{
       return
   }
   if(await bcrypt.compare(password, user.password)){
-      res.json({status: 'ok', message:`${user.first_name} is logged in!`})
+
+      const token = jwt.sign({
+        id: user.id, 
+        username: user.username
+      }, JWT_SECRET)
+
+      res.json({status: 'ok', message:`${user.first_name} is logged in!`, data: token})
   }else{
       res.json({status: 'error', message: 'Invalid Login'})
   }
@@ -142,6 +152,10 @@ router.post('/login', async (req, res) =>{
   res.status(404).json(err);
 }
 });
+
+router.post('/verify',(req,res) =>{
+  
+})
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

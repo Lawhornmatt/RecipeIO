@@ -5,14 +5,15 @@ const loginPage = async (event) => {
     const password = document.querySelector('#password').value.trim();
   
     if (email && password) {
-      const response = await fetch('', {
+      const response = await fetch('http://localhost:3001/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
-        headers: { '': '' },
-      });
+        headers: { 'Content-Type': 'application/json' },
+      }).then(res => res.json())
   
-      if (response.ok) {
-        document.location.replace('/');
+      if (response.status === 'ok') {
+        console.log(response)
+        // document.location.replace('/');
       } else {
         alert('you may not log in.');
       }
@@ -40,10 +41,8 @@ const loginPage = async (event) => {
       }
     }
   };
-  
-  document
-    .querySelector('')
-    .addEventListener('submit', loginPage);
+
+  document.querySelector('.loginForm').addEventListener('submit', loginPage);
   
   document
     .querySelector('')

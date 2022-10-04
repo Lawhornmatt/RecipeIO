@@ -1,15 +1,15 @@
-const logout = async () => {
-    const response = await fetch('', {
-      method: 'POST',
-      headers: { '': '' },
-    });
+// const logout = async () => {
+//     const response = await fetch('', {
+//       method: 'POST',
+//       headers: { '': '' },
+//     });
   
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert('you may not log out.');
-    }
-  };
+//     if (response.ok) {
+//       document.location.replace('/');
+//     } else {
+//       alert('you may not log out.');
+//     }
+//   };
   
-  document.querySelector('').addEventListener('click', logout);
+//   document.querySelector('').addEventListener('click', logout);
   
