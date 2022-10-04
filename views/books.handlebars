@@ -23,22 +23,9 @@
 
       <div class="col-6 mt-3">
         
-        <div class="row satSmoke book justify-content-center my-2">
-          <a class="nav-link nostyle" href="#">Cookbook 1: Grandma's Recipes</a>
-        </div>
-        
-        <div class="row satRedwood book justify-content-center my-2">
-          <a class="nav-link nostyle" href="#">Cookbook 2: Bob's Recipes</a>
-        </div>
-        
-        <div class="row undrBufftan book justify-content-center my-2">
-          <a class="nav-link nostyle" href="#">Cookbook 3: Jane's Recipes</a>
-        </div>
-        
-        <div class="row undrBkgrnd book justify-content-center my-2">
-          <a class="nav-link nostyle" href="#">Cookbook 4: Bad Recipes</a>
-        </div>
-
+        {{#each book as |book|}}
+        {{> userbooks}}
+        {{/each}}
       </div>
     </div>
   </main>

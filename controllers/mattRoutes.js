@@ -16,7 +16,7 @@ router.get('/newbook',withAuth, (req, res) => {
     }
 });
 
-router.post('/newbook', async (req, res) =>{
+router.post('/newbook',withAuth, async (req, res) =>{
     // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
     try {
         const bookData = await Book.create({
@@ -49,7 +49,7 @@ router.get('/newrecipe',withAuth, (req, res) => {
     }
 });
 
-router.post('/newrecipe', async (req, res) =>{
+router.post('/newrecipe',withAuth, async (req, res) =>{
     // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
     try {
         const bookData = await Book.create({
