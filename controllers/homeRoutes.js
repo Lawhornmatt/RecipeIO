@@ -3,6 +3,7 @@ const withAuth = require('../utils/auth');
 const {Book, Recipe, User} = require('../models');
 const bcrypt = require('bcrypt')
 
+
 router.get('/', withAuth, async (req, res) => {
   try {
     let { count, rows } = await Recipe.findAndCountAll({});
@@ -76,7 +77,7 @@ router.get('/about',withAuth, (req, res) => {
   try {
           //replace this with the correct handlebars path
           //       VVVVVVVVVVV
-      res.render('TEMP_RECIPES', {
+      res.render('about', {
         logged_in: req.session.logged_in,
       });
     } catch (err) {
@@ -96,11 +97,11 @@ router.get('/login', (req, res) => {
 
 //THIS NEEDS TO BE UNCOMMENTED IF REQ SESSION LOGGED IN IS WORKING
 
-  // if (req.session.logged_in) {
-  //   res.redirect('/');
-  //   return;
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
    
-  // }
+  }
 
 
 });
