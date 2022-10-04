@@ -38,6 +38,8 @@ const signupPage = async (event) => {
         body: JSON.stringify({ firstName, lastName, username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
+
+      // console.log(JSON.stringify({ firstName, lastName, username, email, password }))
   
       if (response.ok) {
         document.location.replace('/');
@@ -45,7 +47,7 @@ const signupPage = async (event) => {
         alert('you may not sign up.');
       }
     }
-  };
+};
   
 document
     .querySelector('#signmeup')
@@ -60,6 +62,7 @@ const takeToLogin = async () => {
       console.log('Take me to log in');
     
       if (response.ok) {
+        console.log('response: ' + response);
         document.location.replace('/login');
       } else {
         alert('you may not log in.');

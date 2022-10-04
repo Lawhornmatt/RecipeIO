@@ -46,11 +46,35 @@ router.get('/register',withAuth, (req, res) => {
 
 router.post('/register', async (req, res) =>{
   // create user
+  console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
   try {
-      const user = await User.create({...req.body})
-      res.json({data:user})
+      const userData = await User.create({
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      });
+
+      console.log('POST /register | userData' + userData);
+
+      // if(!userData) {
+      //   res
+      //   .status(400)
+      //   .json({ message: 'userData inaccessible' });
+      // return;
+      // } else {
+      //   console.log('userData: ' + userData);
+      // }
+
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+
+        res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
+      });
   }catch(err){
-      res.json({status:'error',message: err.message})
+      res.status(400).json(err);
   }
   
 });
@@ -109,7 +133,7 @@ router.get('/login', (req, res) => {
 //LOGIN (AUTHENTICATE USER)
 router.post('/login', async (req, res) =>{
   try {
-  console.log(req.body);
+  console.log('req.body: ' + req.body);
   //Read name and password from req.body
   const email = req.body.email;
   const password = req.body.password;
