@@ -26,14 +26,16 @@ document
 const signupPage = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('#username').value.trim();
-    const email = document.querySelector('#signupEmail').value.trim();
-    const password = document.querySelector('#signupPassword').value.trim();
+    const firstName = document.querySelector('#first-name').value.trim();
+    const lastName = document.querySelector('#last-name').value.trim();
+    const username = document.querySelector('#user-name').value.trim();
+    const email = document.querySelector('#user-email').value.trim();
+    const password = document.querySelector('#user-password').value.trim();
   
-    if (username && email && password) {
+    if (firstName && lastName && username && email && password) {
       const response = await fetch('/register', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ firstName, lastName, username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -46,8 +48,8 @@ const signupPage = async (event) => {
   };
   
 document
-    .querySelector('')
-    .addEventListener('submit', signupPage);
+    .querySelector('#signmeup')
+    .addEventListener('click', signupPage);
 
 const takeToLogin = async () => {
       const response = await fetch('/login', {
