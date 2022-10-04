@@ -7,19 +7,6 @@ const bcrypt = require('bcrypt')
 //COOKBOOK LIST OF RECIPES
 router.get('/',withAuth, async (req, res) => {
   try {
-      // const allRecipes = await Book.findAll( {
-      //   attributes: [],
-      //   where: {
-      //     user_id: req.session.user_id
-      //   },
-      //   include: [
-      //     { model: Recipe,
-      //       through: { BookRecipe,
-      //         attributes: []
-      //       }
-      //     }
-      //   ]
-      // });
       const allRecipes = await Recipe.findAll( {
         include: [
           { model: Book,
@@ -48,27 +35,22 @@ router.get('/',withAuth, async (req, res) => {
 });
 
 //INDIVIDUAL RECIPE
-router.get('/:name/recipes/:id',withAuth, async (req, res) => {
-
-  const desiredBook = await Book.findOne( { 
-    where: { 
-      title: req.params.name 
-    } 
-  });
-
+router.get('/:id',withAuth, async (req, res) => {
   try {
-    const desiredRecipe = await Book.findOne( {
+    const allRecipes = await Recipe.findOne( {
       where: {
-        name: req.params.name
-      }
+        id: req.params.id
+      },
     });
 
-    const myRecipe = desiredRecipe.get({plain: true});
+    const recipesData = allRecipes.get({plain: true});
 
-      res.render('home', {
-        myRecipe,
-        logged_in: req.session.logged_in,
-      });
+    // res.json(recipesData);
+
+    res.render('oneRecipe', {
+      recipesData,
+      logged_in: req.session.logged_in,
+    });
     } catch (err) {
       res.status(500).json(err);
     }

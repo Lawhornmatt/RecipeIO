@@ -69,11 +69,11 @@ router.post('/register', async (req, res) =>{
   }
 });
 
-router.get('/contact',withAuth, (req, res) => {
+router.get('/account',withAuth, (req, res) => {
 
   try {
       //replace this with the correct handlebars path
-      res.render('contact', {
+      res.render('account', {
         logged_in: req.session.logged_in,
       });
     } catch (err) {
