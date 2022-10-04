@@ -78,30 +78,32 @@ router.post('/newrecipe',withAuth, async (req, res) =>{
         req.session.save(() => {
           req.session.logged_in = true;
   
-          console.log(`\x1b[32mstatus: 'ok', message: ==replace_me== is created!\x1b[0m`); // ${recipeData.name}
+          console.log(`\x1b[32mstatus: 'ok', message: ${recipeData} is created!\x1b[0m`);
           res.redirect('/recipes');
         });
     }catch(err){
         res.status(400).json(err);
     }
-    console.log(`\x1b[32mpost-create info: \x1b[0m` + newRecipeID);
+    console.log(`\x1b[32mpost-create info: \x1b[0m` + newRecipeID); // REMOVE ME LATER
     // SECOND: Create however many BookRecipe tags as necessary 
-  //   try {
-  //     const BRData = await BookRecipe.create({
-  //       book_id: req.body.bookAssign[0],
-  //       recipe_id: req.body.ingredients,
-  //     });
-
-
-  //     req.session.save(() => {
-  //       req.session.logged_in = true;
-
-  //       console.log(`status: 'ok', message: ${BRData.name} is created!`);
-  //       res.redirect('/recipes');
-  //     });
-  // }catch(err){
-  //     res.status(400).json(err);
-  // }
+    // if (req.body.bookAssign[0]){
+    //   try {
+    //     const BRData = await BookRecipe.create({
+    //       book_id: req.body.bookAssign[0],
+    //       recipe_id: req.body.ingredients,
+    //     });
+  
+  
+    //     req.session.save(() => {
+    //       req.session.logged_in = true;
+  
+    //       console.log(`status: 'ok', message: ${BRData.name} is created!`);
+    //       res.redirect('/recipes');
+    //     });
+    //   }catch(err){
+    //       res.status(400).json(err);
+    //   }
+    // }
 });
 
 router.post('/editbook',withAuth, async (req, res) =>{

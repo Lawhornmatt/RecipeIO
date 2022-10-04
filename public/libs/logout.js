@@ -34,13 +34,28 @@ const genRecipe = async (event) => {
           }
       })
     };
-
+    
     await getData();
+
   
-    if (name && ingredients && directions) {
+    if (name && ingredients && directions && bookAssign[0]) {
       const response = await fetch('/matt/newrecipe', {
         method: 'POST',
         body: JSON.stringify({ name, ingredients, directions, bookAssign }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      // console.log(JSON.stringify({ name, ingredients, directions }))
+  
+      if (response.ok) {
+        document.location.replace('/recipes');
+      } else {
+        alert('you may not sign up.');
+      }
+    } else if (name && ingredients && directions) {
+      const response = await fetch('/matt/newrecipe', {
+        method: 'POST',
+        body: JSON.stringify({ name, ingredients, directions }),
         headers: { 'Content-Type': 'application/json' },
       });
 
