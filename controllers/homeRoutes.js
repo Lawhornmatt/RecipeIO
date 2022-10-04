@@ -43,31 +43,49 @@ router.get('/register',withAuth, (req, res) => {
 
 });
 
+// create user
 router.post('/register', async (req, res) =>{
-  // create user
+  // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
   try {
-      const user = await User.create({...req.body})
-      res.json({data:user})
+      const userData = await User.create({
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      });
+
+      // console.log('POST /register | userData' + userData);
+
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+
+        res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
+      });
   }catch(err){
-      res.json({status:'error',message: err.message})
+      res.status(400).json(err);
   }
-  
 });
 
-router.get('/contact',withAuth, (req, res) => {
-
+router.get('/account',withAuth, async (req, res) => {
   try {
-      //replace this with the correct handlebars path
-      res.render('contact', {
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    const desiredAccount = await User.findOne( { 
+      where: {
+        id: req.session.user_id
+    }});
 
-  //LIST OF THE COOKBOOKS
+    const accountData = desiredAccount.get({plain: true});
 
+    // res.json(bookData);
 
+    res.render('account', {
+      accountData,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 
@@ -108,35 +126,41 @@ router.get('/login', (req, res) => {
 //LOGIN (AUTHENTICATE USER)
 router.post('/login', async (req, res) =>{
   try {
-  console.log(req.body)
+  console.log('req.body: ' + req.body);
   //Read name and password from req.body
-  const email = req.body.email
-  const password = req.body.password
+  const email = req.body.email;
+  const password = req.body.password;
 
   //find if name exists in db
- const user = await User.findOne(
+  const userData = await User.findOne(
       {
           where:{
-              email
+              email: email,
           }
       }
-  )
-  if (!user){
+  );
+  if (!userData){
     res
       .status(400)
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-  if(await bcrypt.compare(password, user.password)){
-      res.json({status: 'ok', message:`${user.first_name} is logged in!`})
-  }else{
-      res.json({status: 'error', message: 'Invalid Login'})
+
+  const validPassword = await userData.checkPassword(password);
+
+
+  if (!validPassword) {
+    res
+      .status(400)
+      .json({ message: 'Incorrect email or password, please try again' });
+    return;
   }
 
-  // saves user to the session
   req.session.save(() => {
-    req.session.user_id = User.id;
+    req.session.user_id = userData.id;
     req.session.logged_in = true;
+
+    res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
   });
 } catch (err) {
   res.status(404).json(err);

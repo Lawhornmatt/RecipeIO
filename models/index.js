@@ -5,9 +5,8 @@ const BookRecipe = require('./BookRecipe');
 
 Book.belongsTo(User, { foreignKey: 'user_id' });
 
-Book.hasMany(Recipe, {
-    foreignKey: 'book_id',
-    onDelete: 'CASCADE'
+Book.belongsToMany(Recipe, {
+    through: BookRecipe,
 });
 
 Recipe.belongsToMany(Book, {
