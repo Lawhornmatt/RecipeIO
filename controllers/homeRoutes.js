@@ -118,7 +118,7 @@ router.post('/login', async (req, res) =>{
  const user = await User.findOne(
       {
           where:{
-              email
+              email: email,
           }
       }
   )
@@ -128,17 +128,17 @@ router.post('/login', async (req, res) =>{
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-  if(await bcrypt.compare(password, user.password)){
-      res.json({status: 'ok', message:`${user.first_name} is logged in!`})
-  }else{
-      res.json({status: 'error', message: 'Invalid Login'})
+  if(await bcrypt.compare(password, user.password) === false){
+    res.json({status: 'error', message: 'Invalid Login'})
   }
 
   // saves user to the session
   req.session.save(() => {
-    req.session.user_id = User.id;
+    req.session.user_id = user.id;
     req.session.logged_in = true;
+    res.json({ user: user, message: 'logged in now'});
   });
+  console.log('session: ', req.session.user_id);
 } catch (err) {
   res.status(404).json(err);
 }
@@ -147,6 +147,7 @@ router.post('/login', async (req, res) =>{
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
+      res.json({message: 'Logged out'})
       res.status(204).end();
     });
   } else {
