@@ -6,16 +6,16 @@ const { request } = require('express');
 //LIST OF THE COOKBOOKS
 router.get('/books',withAuth, async (req, res) => {
   try {
-      // const allBooks = await Book.findAll( {
-      //   where: {
-      //     user_id: req.session.user_id
-      //   }
-      // });
+      const allBooks = await Book.findAll( {
+        where: {
+          user_id: req.session.user_id
+        }
+      });
 
-      // const books = allBooks.map((book) => book.get({plain: true}));
+      const books = allBooks.map((book) => book.get({plain: true}));
 
       res.render('books', {
-        // books,
+        books,
         logged_in: req.session.logged_in,
       });
     } catch (err) {
