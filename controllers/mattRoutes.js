@@ -86,24 +86,29 @@ router.post('/newrecipe',withAuth, async (req, res) =>{
     }
     console.log(`\x1b[32mpost-create info: \x1b[0m` + newRecipeID); // REMOVE ME LATER
     // SECOND: Create however many BookRecipe tags as necessary 
-    // if (req.body.bookAssign[0]){
-    //   try {
-    //     const BRData = await BookRecipe.create({
-    //       book_id: req.body.bookAssign[0],
-    //       recipe_id: req.body.ingredients,
-    //     });
-  
-  
-    //     req.session.save(() => {
-    //       req.session.logged_in = true;
-  
-    //       console.log(`status: 'ok', message: ${BRData.name} is created!`);
-    //       res.redirect('/recipes');
-    //     });
-    //   }catch(err){
-    //       res.status(400).json(err);
-    //   }
-    // }
+    if (req.body.bookAssign){
+      let bookArrayYay = req.body.bookAssign;
+      console.log(`\x1b[32mstatus: bookAssign For Each: ${bookArrayYay}\x1b[0m`);
+      
+      bookArrayYay.forEach(async function(element) {
+        try {
+          const BRData = await BookRecipe.create({
+            book_id: element,
+            recipe_id: newRecipeID,
+          });
+    
+          console.log(`\x1b[32mBRData: \x1b[0m` + JSON.stringify(BRData));
+
+          req.session.save(() => {
+            req.session.logged_in = true;
+    
+            console.log(`\x1b[32mstatus: 'ok', message: BR ID: ${BRData.id} is created!\x1b[0m`);
+          });
+        }catch(err){
+            res.status(400).json(err);
+        }
+      });
+    }
 });
 
 router.post('/editbook',withAuth, async (req, res) =>{
