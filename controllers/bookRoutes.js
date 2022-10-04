@@ -35,7 +35,7 @@ router.get('/:id',withAuth, async (req, res) => {
     try {
       const desiredBook = await Book.findOne( { 
         where: {
-          user_id: req.params.id
+          id: req.params.id
         },
         include: [
           { model: Recipe,
@@ -58,55 +58,6 @@ router.get('/:id',withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-//COOKBOOK LIST OF RECIPES
-router.get('/:name/recipes',withAuth, async (req, res) => {
-
-  try {
-      const allReciepes = await Recipe.findAll( {
-        where: {
-          user_id: req.params.user_id
-        },
-      });
-
-      const recipes = allReciepes.map((reciepe) => reciepe.get({plain: true}));
-
-      res.render('TEMP_RECIPES', {
-        recipes,
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-});
-
-//INDIVIDUAL RECIPE
-router.get('/:name/recipes/:id',withAuth, async (req, res) => {
-
-  const desiredBook = await Book.findOne( { 
-    where: { 
-      title: req.params.name 
-    } 
-  });
-
-  try {
-    const desiredRecipe = await Book.findOne( {
-      where: {
-        name: req.params.name
-      }
-    });
-
-    const myRecipe = desiredRecipe.get({plain: true});
-
-      res.render('home', {
-        myRecipe,
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-});
-
 
 
 module.exports = router;
