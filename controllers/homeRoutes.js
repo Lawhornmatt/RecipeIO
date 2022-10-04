@@ -8,13 +8,13 @@ router.get('/', withAuth, async (req, res) => {
     let { count, rows } = await Recipe.findAndCountAll({});
     
     const randRecipe = Math.floor(Math.random() * count) + 1;
-    const recipeData = await Recipe.findByPk(randRecipe);
+    // const recipeData = await Recipe.findByPk(randRecipe);
 
     // Serialize data so the template can read it
-    let recipe = recipeData.get({ plain: true });
+    // let recipe = recipeData.get({ plain: true });
 
     res.render('home', {
-        recipe,
+        // recipe, commented out until recipe data is available
         logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -76,7 +76,7 @@ router.get('/about',withAuth, (req, res) => {
   try {
           //replace this with the correct handlebars path
           //       VVVVVVVVVVV
-      res.render('TEMP_RECIPES', {
+      res.render('about', {
         logged_in: req.session.logged_in,
       });
     } catch (err) {
@@ -96,11 +96,11 @@ router.get('/login', (req, res) => {
 
 //THIS NEEDS TO BE UNCOMMENTED IF REQ SESSION LOGGED IN IS WORKING
 
-  // if (req.session.logged_in) {
-  //   res.redirect('/');
-  //   return;
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
    
-  // }
+  }
 
 
 });
@@ -147,6 +147,7 @@ router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
+      console.log('Session Destroyed');
     });
   } else {
     res.status(404).end();
