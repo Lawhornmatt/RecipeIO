@@ -8,13 +8,13 @@ router.get('/', withAuth, async (req, res) => {
     let { count, rows } = await Recipe.findAndCountAll({});
     
     const randRecipe = Math.floor(Math.random() * count) + 1;
-    const recipeData = await Recipe.findByPk(randRecipe);
+    // const recipeData = await Recipe.findByPk(randRecipe);
 
     // Serialize data so the template can read it
-    let recipe = recipeData.get({ plain: true });
+    // let recipe = recipeData.get({ plain: true });
 
     res.render('home', {
-        recipe,
+        // recipe, commented out until recipe data is available
         logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -147,6 +147,7 @@ router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
+      console.log('Session Destroyed');
     });
   } else {
     res.status(404).end();
