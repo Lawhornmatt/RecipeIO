@@ -30,7 +30,7 @@
   <body>
     {{!-- == NAV BAR == --}}
     <nav class="navbar navbar-expand-md justify-content-between navbar-light navbarBkgrnd">
-      <a class="navbar-brand navbarButtonBkgrnd" href="#">RecipeIO</a>
+      <a class="navbar-brand navbarButtonBkgrnd" href="localhost:3001">RecipeIO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,29 +40,29 @@
 
           {{#if logged_in}}
           <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="">Account</a>
           </li> 
           {{/if}}
           
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="localhost:3001/about">About</a>
           </li> 
 
           {{#if logged_in}}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="localhost:3001/books" id="navbarDropdown" role="button" data-toggle="dropdown">
               View Recipe Books
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Recipe Book 1</a>
-              <a class="dropdown-item" href="#">Recipe Book 2</a>
+              <a class="dropdown-item" href="localhost:3001/books/:name">Recipe Book 1</a>
+              <a class="dropdown-item" href="localhost:3001/books/:name">Recipe Book 2</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">New Recipe Book</a>
+              <a class="dropdown-item" href="localhost:3001/books/:name">New Recipe Book</a>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">View Recipes</a>
+            <a class="nav-link" href="localhost:3001/books/:name/recipes/:id">View Recipes</a>
           </li>
 
           <li class="nav-item">
