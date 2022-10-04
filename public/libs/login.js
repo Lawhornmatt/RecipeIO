@@ -58,7 +58,7 @@ const takeToLogin = async () => {
       console.log('Take me to log in');
     
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/login');
       } else {
         alert('you may not log in.');
       }

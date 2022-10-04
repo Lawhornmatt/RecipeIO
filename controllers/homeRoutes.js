@@ -109,35 +109,41 @@ router.get('/login', (req, res) => {
 //LOGIN (AUTHENTICATE USER)
 router.post('/login', async (req, res) =>{
   try {
-  console.log(req.body)
+  console.log(req.body);
   //Read name and password from req.body
-  const email = req.body.email
-  const password = req.body.password
+  const email = req.body.email;
+  const password = req.body.password;
 
   //find if name exists in db
- const user = await User.findOne(
+  const userData = await User.findOne(
       {
           where:{
-              email
+              email: email,
           }
       }
-  )
-  if (!user){
+  );
+  if (!userData){
     res
       .status(400)
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-  if(await bcrypt.compare(password, user.password)){
-      res.json({status: 'ok', message:`${user.first_name} is logged in!`})
-  }else{
-      res.json({status: 'error', message: 'Invalid Login'})
+
+  const validPassword = await userData.checkPassword(password);
+
+
+  if (!validPassword) {
+    res
+      .status(400)
+      .json({ message: 'Incorrect email or password, please try again' });
+    return;
   }
 
-  // saves user to the session
   req.session.save(() => {
-    req.session.user_id = User.id;
+    req.session.user_id = userData.id;
     req.session.logged_in = true;
+
+    res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
   });
 } catch (err) {
   res.status(404).json(err);
