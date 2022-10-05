@@ -90,6 +90,29 @@ router.get('/account', withAuth, async(req, res) => {
     }
 });
 
+router.get('/account/:user', withAuth, async(req, res) => {
+
+    try {
+        console.log(req.params.username);
+        const desiredAccount = await User.findOne({
+            where: {
+                username: req.params.user
+            }
+        });
+
+        const accountData = desiredAccount.get({ plain: true });
+
+        // res.json(bookData);
+
+        res.render('account', {
+            accountData,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 router.get('/about', withAuth, (req, res) => {
 

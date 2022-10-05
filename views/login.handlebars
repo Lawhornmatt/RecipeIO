@@ -2,7 +2,7 @@
   <div class="row justify-content-around">
     <div class="col-5 rounded mt-1 mb-3">
       <div class="login-card m-5">
-        <h2 class="title satSmoke">Login</h2>
+        <h2 class="title satSmoke cloudSml smelly">Login</h2>
         <form class="m-5">
           <div class="">
             <label for="loginEmail">Email:</label>
@@ -20,16 +20,29 @@
     </div>
 
     <div class="col-6 mt-3">
-      <div class = "card-header col-md-10 mainTang">
+      <div class = "card-header col-md-10 satSmoke cloudSml smelly">
            <h2>Sign Up for an Account</h2>
       </div>
-      <div class="">
-        <label for="signupPassword">Password:</label>
-        <input class="" type="text" id="signupPassword" />
-      </div>
-      <div class="">
-        <button class="btn" type="submit">signup</button>
-      </div>
+      <form class = "signup-form">
+
+          <label for="first-name"> First Name:</label><br>
+          <input type="text" id="first-name" value="Matt"/><br>
+
+          <label for="last-name">Last Name:</label><br>
+          <input type="text" id="last-name" value="Lawhorn"/><br>
+
+          <label for="user-name">Username:</label><br>
+          <input type="text" id="user-name" value="Blahman"/><br>
+
+          <label for="user-email">Email:</label><br>
+          <input type="email" id="user-email" value="me@gmail.com"/><br>
+
+          <label for="user-password">Password:</label><br>
+          <input type="password" id="user-password" value="pass"/><br>
+
+          <div class="mainBufftan" id="signmeup">
+            <button class="btn" type="submit">Create Account</button>
+          </div>
 
       </form>
   </div>
