@@ -78,15 +78,6 @@ router.get('/account',withAuth, async (req, res) => {
 
     const accountData = desiredAccount.get({plain: true});
 
-router.get('/account',withAuth, async (req, res) => {
-  try {
-    const desiredAccount = await User.findOne( { 
-      where: {
-        id: req.session.user_id
-    }});
-
-    const accountData = desiredAccount.get({plain: true});
-
     // res.json(bookData);
 
     res.render('account', {
