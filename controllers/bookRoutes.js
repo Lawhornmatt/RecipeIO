@@ -1,57 +1,71 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const {Book, Recipe, User, BookRecipe} = require('../models');
+const { Book, Recipe, User, BookRecipe } = require('../models');
 const bcrypt = require('bcrypt')
 
 //LIST OF THE COOKBOOKS
-router.get('/',withAuth, async (req, res) => {
-  try {
-      const allBooks = await Book.findAll( {
-        where: {
-          user_id: req.session.user_id
-        }
-      });
+router.get('/', withAuth, async(req, res) => {
+    try {
+        const allBooks = await Book.findAll({
+            where: {
+                user_id: req.session.user_id
+            }
+        });
 
-      const bookData = allBooks.map((book) => book.get({plain: true}));
-      // const bookData = allBooks.get({ plain: true });
+        const bookData = allBooks.map((book) => book.get({ plain: true }));
+        // const bookData = allBooks.get({ plain: true });
 
-      // console.log('GET /books | bookData' + bookData);
+        // console.log('GET /books | bookData' + bookData);
 
-      // res.json(bookData);
+        // res.json(bookData);
 
-      res.render('books', {
-        bookData,
-        logged_in: req.session.logged_in,
-      });
+        res.render('books', {
+            bookData,
+            logged_in: req.session.logged_in,
+        });
+        // res.json(bookData);
     } catch (err) {
-      res.status(500).json(err);
+        res.status(500).json(err);
     }
 });
 
 //CHOSEN BOOK
-router.get('/:id',withAuth, async (req, res) => {
+router.get('/:id', withAuth, async(req, res) => {
     try {
-      const desiredBook = await Book.findOne( { 
-        where: {
-          id: req.params.id
-        },
-        include: [
-          { model: Recipe,
-            through: { BookRecipe,
-              attributes: []
-            }
-          }
-        ]
-      });
+        const desiredBook = await Book.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [{
+                model: Recipe,
+                through: {
+                    BookRecipe,
+                    attributes: []
+                }
+            }]
+        });
 
-      const bookData = desiredBook.get({plain: true});
+        const bookData = desiredBook.get({ plain: true });
 
-      // res.json(bookData);
+        // res.json(bookData);
 
-      res.render('viewBook', {
-        bookData,
-        logged_in: req.session.logged_in,
-      });
+        res.render('viewBook', {
+            bookData,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:id', withAuth, async(req, res) => {
+    try {
+        const desiredBook = await Book.destroy({
+            where: {
+                id: req.params.id
+            },
+        });
+        res.status(200).json(desiredBook);
     } catch (err) {
         res.status(500).json(err);
     }
