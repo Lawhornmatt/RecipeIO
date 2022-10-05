@@ -146,8 +146,15 @@ router.post('/login', async (req, res) =>{
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-  if(await bcrypt.compare(password, user.password) === false){
-    res.json({status: 'error', message: 'Invalid Login'})
+
+  const validPassword = await userData.checkPassword(password);
+
+
+  if (!validPassword) {
+    res
+      .status(400)
+      .json({ message: 'Incorrect email or password, please try again' });
+    return;
   }
 
   req.session.save(() => {
@@ -156,7 +163,6 @@ router.post('/login', async (req, res) =>{
 
     res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
   });
-  console.log('session: ', req.session.user_id);
 } catch (err) {
   res.status(404).json(err);
 }
