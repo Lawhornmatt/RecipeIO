@@ -32,8 +32,9 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', exphbs({ defaultLayout: ''}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.set('json spaces', 2);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
