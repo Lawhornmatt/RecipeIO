@@ -30,6 +30,7 @@ const genRecipe = async (event) => {
     const name = document.querySelector('#recipe-name').value.trim();
     const ingredients = document.querySelector('#recipe-ingredients').value.trim();
     const directions = document.querySelector('#recipe-directions').value.trim();
+    const img = document.querySelector('#recipe-img').value.trim();
 
     var newRecipeForm = document.getElementById('newRecipeForm');
     var checkBoxes = newRecipeForm.querySelectorAll('input[type="checkbox"]');
@@ -53,11 +54,11 @@ const genRecipe = async (event) => {
     if (name && ingredients && directions && bookAssign[0]) {
       let response = await fetch('/matt/newrecipe', {
         method: 'POST',
-        body: JSON.stringify({ name, ingredients, directions, bookAssign }),
+        body: JSON.stringify({ name, ingredients, directions, bookAssign, img }),
         headers: { 'Content-Type': 'application/json' },
       });
 
-      // console.log(JSON.stringify({ name, ingredients, directions }))
+      console.log(JSON.stringify({ name, ingredients, directions, img }))
   
       if (response.ok) {
         document.location.replace('/recipes');
@@ -67,7 +68,7 @@ const genRecipe = async (event) => {
     } else if (name && ingredients && directions) {
       let response = await fetch('/matt/newrecipe', {
         method: 'POST',
-        body: JSON.stringify({ name, ingredients, directions }),
+        body: JSON.stringify({ name, ingredients, directions, img }),
         headers: { 'Content-Type': 'application/json' },
       });
 

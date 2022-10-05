@@ -247,6 +247,11 @@ a.nostyle:visited {
     width: 40%;
     align-self: center;
 }
+
+.recipe-img{
+    width: 150px;
+    height:150px;
+}
     
     /*  =========================  
                   IDs

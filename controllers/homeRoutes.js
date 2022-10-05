@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt')
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    let { count, rows } = await Recipe.findAndCountAll({});
+    // let { count, rows } = await Recipe.findAndCountAll({});
     
-    const randRecipe = Math.floor(Math.random() * count) + 1;
+    // const randRecipe = Math.floor(Math.random() * count) + 1;
     // const recipeData = await Recipe.findByPk(randRecipe);
 
     // Serialize data so the template can read it

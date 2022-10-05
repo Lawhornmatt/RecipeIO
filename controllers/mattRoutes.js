@@ -79,6 +79,7 @@ router.post('/newrecipe',withAuth, async (req, res) =>{
           name: req.body.name,
           ingredients: req.body.ingredients,
           directions: req.body.directions,
+          img: req.body.img,
         }).then(function(info) {
           // console.log(`\x1b[32mpost-create info: \x1b[0m` + info.id);
           newRecipeID = info.id;
