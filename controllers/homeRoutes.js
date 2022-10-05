@@ -145,7 +145,7 @@ router.post('/login', async (req, res) =>{
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-  if(await bcrypt.compare(password, user.password) === false){
+  if(await bcrypt.compare(password, userData.password) === false){
     res.json({status: 'error', message: 'Invalid Login'})
   }
 
