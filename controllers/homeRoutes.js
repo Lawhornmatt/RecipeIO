@@ -78,6 +78,15 @@ router.get('/account',withAuth, async (req, res) => {
 
     const accountData = desiredAccount.get({plain: true});
 
+router.get('/account',withAuth, async (req, res) => {
+  try {
+    const desiredAccount = await User.findOne( { 
+      where: {
+        id: req.session.user_id
+    }});
+
+    const accountData = desiredAccount.get({plain: true});
+
     // res.json(bookData);
 
     res.render('account', {
@@ -146,15 +155,8 @@ router.post('/login', async (req, res) =>{
       .json({status: 'error', message: 'Invalid Login'})
       return
   }
-
-  const validPassword = await userData.checkPassword(password);
-
-
-  if (!validPassword) {
-    res
-      .status(400)
-      .json({ message: 'Incorrect email or password, please try again' });
-    return;
+  if(await bcrypt.compare(password, user.password) === false){
+    res.json({status: 'error', message: 'Invalid Login'})
   }
 
   req.session.save(() => {
@@ -163,6 +165,7 @@ router.post('/login', async (req, res) =>{
 
     res.json({status: 'ok', message:`${userData.first_name} is logged in!`})
   });
+  console.log('session: ', req.session.user_id);
 } catch (err) {
   res.status(404).json(err);
 }
@@ -171,6 +174,7 @@ router.post('/login', async (req, res) =>{
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
+      res.json({message: 'Logged out'})
       res.status(204).end();
       console.log('Session Destroyed');
     });
