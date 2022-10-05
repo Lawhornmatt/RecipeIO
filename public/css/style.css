@@ -163,6 +163,12 @@ a.nostyle:visited {
     border-color: #05072a;
 }
 
+.smelly{
+    text-align: center;
+    padding: 20px;
+    border-radius: 100px;
+}
+
  /* ==== Image Classes ==== */
 
 .idealIMG {
@@ -187,6 +193,10 @@ a.nostyle:visited {
 
 .ourLogo {
     font-size: 4rem;
+}
+
+.btn{
+    border-radius: 4px;
 }
 
 
