@@ -16,7 +16,8 @@ BookRecipe.init({
         references: {
             model: 'book',
             key: 'id',
-        }
+        },
+        allowNull: false,
     },
     recipe_id: {
         type: DataTypes.INTEGER,
