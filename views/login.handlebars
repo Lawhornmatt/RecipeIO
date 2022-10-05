@@ -1,31 +1,27 @@
-<div class="row">
-  <div class="login-card">
-    <h2 class="title">Login</h2>
-    <form class="loginForm">
-      <div class="">
-        <label for="loginEmail">Email:</label>
-        <input class="" type="text" id="loginEmail" />
+<main class="container-fluid mt-5">
+  <div class="row justify-content-around">
+    <div class="col-5 rounded mt-1 mb-3">
+      <div class="login-card m-5">
+        <h2 class="title satSmoke">Login</h2>
+        <form class="m-5">
+          <div class="">
+            <label for="loginEmail">Email:</label>
+            <input class="" type="text" id="email" value="s@aol.com"/>
+          </div>
+          <div class="">
+            <label for="loginPassword">Password:</label>
+            <input class="" type="password" id="password" value="pass"/>
+          </div>
+          <div class="mainBufftan" id="logmein">
+            <button class="btn" type="submit">login</button>
+          </div>
+        </form>
       </div>
-      <div class="">
-        <label for="loginPassword">Password:</label>
-        <input class="" type="text" id="loginPassword" />
-      </div>
-      <div class="">
-        <button class="btn" type="submit">login</button>
-      </div>
-    </form>
-  </div>
+    </div>
 
-  <div class="">
-    <h2 class="title">Signup</h2>
-    <form class="signupForm">
-      <div class="">
-        <label for="username">Username:</label>
-        <input class="" type="text" id="username" />
-      </div>
-      <div class="">
-        <label for="signupEmail">Email:</label>
-        <input class="" type="" id="signupEmail" />
+    <div class="col-6 mt-3">
+      <div class = "card-header col-md-10 mainTang">
+           <h2>Sign Up for an Account</h2>
       </div>
       <div class="">
         <label for="signupPassword">Password:</label>
@@ -34,9 +30,7 @@
       <div class="">
         <button class="btn" type="submit">signup</button>
       </div>
-    </form>
+
+      </form>
   </div>
-
-</div>
-
-<script src="./public/login.js"></script>
+</main>
