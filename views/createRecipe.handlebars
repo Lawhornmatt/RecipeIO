@@ -1,9 +1,12 @@
-<div class = "create-recipe-page">
-    <div class = "card-header col-md-10">
+<div class = "d-flex justify-content-center create-recipe-page">
+    <div class ="mainSmoke row justify-content-center  mb-5 cloud">
         <h2>Create Recipe</h2>
     </div>
-    <form class = "create-recipe-form">
-        <label for ="recipe-name"> Recipe Name:</label><br>
+
+    <br><br>
+    <div class = "d-flex justify-content-center mainTang"></div>
+    <form class = " form-control-lg mainBufftan align-content-center create-recipe-form">
+        <label for ="buffTang recipe-name "> Recipe Name:</label><br>
         <input type = "text" id="recipe-name"><br>
 
         <label for ="recipe-ingredients">Ingredients:</label><br>
@@ -12,8 +15,8 @@
         <label for ="recipe-directions">Directions:</label><br>
         <input type ="text" id="recipe-directions"><br>
 
-        <label for ="recipe-picture">Picture:</label><br>
-        <input type ="file" name="recipe-picture" accept = "image/*"><br>
+        <label for ="recipe-pictureURL">Picture URL:</label><br>
+        <input type ="text" name="recipe-pictureURL"><br>
 
         <label for  = "recipe-book"> Recipe Book</label><br>
 
@@ -29,4 +32,5 @@
         <input type="submit" value="Submit" id="submit">
 
     </form>
+    </div>
 </div>
