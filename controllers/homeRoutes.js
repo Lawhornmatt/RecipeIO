@@ -3,7 +3,6 @@ const withAuth = require('../utils/auth');
 const {Book, Recipe, User} = require('../models');
 const bcrypt = require('bcrypt')
 
-
 router.get('/', withAuth, async (req, res) => {
   try {
     let { count, rows } = await Recipe.findAndCountAll({});
