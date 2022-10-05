@@ -39,7 +39,8 @@ const recipeData = [
     {  //8
         name: 'SnaowoReal Beef Wellington',
         ingredients: 'Its a secret ;)',
-        directions: 'Wouldnt you like to know'
+        directions: 'Wouldnt you like to know',
+        img: 'https://www.seriouseats.com/thmb/NI2q-GoxDJL_skNbvOGLYuoHR6k=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-ultimate-beef-wellington-recipe-step-17_edited-7d3dd38835a34be2bf320848b2d6d292.jpg'
     },
     {  //9
         name: 'SnaowoReal Ice Cream',

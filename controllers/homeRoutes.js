@@ -6,18 +6,19 @@ const bcrypt = require('bcrypt')
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    // let { count, rows } = await Recipe.findAndCountAll({});
+    let { count, rows } = await Recipe.findAndCountAll({});
     
-    // const randRecipe = Math.floor(Math.random() * count) + 1;
-    // const recipeData = await Recipe.findByPk(randRecipe);
+    const randRecipe = Math.floor(Math.random() * count) + 1;
+    const recipeData = await Recipe.findByPk(randRecipe);
 
     // Serialize data so the template can read it
-    // let recipe = recipeData.get({ plain: true });
+    let recipe = recipeData.get({ plain: true });
 
     res.render('home', {
-        // recipe, commented out until recipe data is available
+        recipe,
         logged_in: req.session.logged_in,
-    });
+      });
+
   } catch (err) {
     res.status(500).json(err);
   }
