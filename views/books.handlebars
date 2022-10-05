@@ -1,27 +1,31 @@
-<div class = "create-book-page">
-    <div class = "card-header col-md-10">
-        <h2>Create Book</h2>
-        <form class = "create-recipe-form">
-        <label for ="recipe-book-name"> Book Name:</label><br><br>
-        <input type = "text" id="recipe-book-name"><br><br>
-        <label for ="recipes-in-book">Choose the recipes you would like to have in this book.</label><br><br>
-        <select id = "all-recipes" name="all-recipes">
-            <option value = "recipe"> Macaroni and Cheese</option>
-            <option value = "recipe"> Strawberry Shortcake</option>
-            <option value = "recipe"> Spaghetti and Meatballs</option>
-            <option value = "recipe"> Enchiladas Rojas</option>
-        </select>
-        <br><br>
-        <button type = "button">Add</button>
-</form>
-         <div class = "recipe-list" id = "recipe list">
-        <ul>
-  <li>Enchiladas</li>
-  <li>Chicken and Waffles</li>
-  <li>Cheesecake</li>
-</ul>
-    </div>
-    
+  <main class="container-fluid mt-5">
+     <div class="row justify-content-around">
+      <div class="col-5 rounded mt-1 mb-3">
 
-   
+        <div class="undrRedwood row justify-content-center align-items-center mb-5 cloud">
+          <p>Your <br> Cookbooks</p>
+        </div>
+
+        <div class="row mainBufftan justify-content-center mb-5 ml-2 cloudSml py-4" id="cookbookStats">
+          <div class="row satFont d-flex flex-column align-items-center p-2 rounded">
+            <p>User Bake Stats: <br></p>
+            <ol>
+              <li>Total Bakes(tm):  5</li>
+              <li>Weekly New Bakers:  10</li>
+              <li>Highest Rating:  4.8/5</li>
+              <li>Hottest Cookbook: <br> Grandma's Recipes</li>
+              <li>Hottest recipe: <br> Apple Pie</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-6 mt-3">
+        
+        {{#each bookData as |book|}}
+        {{> userbooks}}
+        {{/each}}
+      </div>
     </div>
+  </main>

@@ -2,7 +2,7 @@ const withAuth = (req, res, next) => {
 
     //DELETE WHEN REQ SESSION LOGGED IN IS HANDLED
 
-    req.session.logged_in = true;
+    // req.session.logged_in = true;
     //^^^^^^^^^^^^^^^^^^
     //DELETE WHEN REQ SESSION LOGGED IN IS HANDLED
 
