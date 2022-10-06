@@ -102,9 +102,8 @@
 
       const name = document.querySelector('#book-name').value.trim();
 
-
       if (name) {
-          let response = await fetch('/newbook', {
+          let response = await fetch('/books/makenewbook', {
               method: 'POST',
               body: JSON.stringify({ name }),
               headers: { 'Content-Type': 'application/json' },
