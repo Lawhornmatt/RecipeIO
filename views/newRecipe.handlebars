@@ -24,6 +24,11 @@
               <input type ="text" id="recipe-directions" name="directions" value="Mix it all together and whadaya get"><br>
             </div>
 
+            <div class="row">
+              <label for ="recipe-directions">IMG URL:</label><br>
+              <input type ="text" id="recipe-img" name="directions" value=""><br>
+            </div>
+
             {{#each preBookData as |book|}}
             {{> bookCheckbox}}
             {{/each}}

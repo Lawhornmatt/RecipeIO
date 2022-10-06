@@ -19,6 +19,9 @@ Recipe.init({
     },
     directions: {
         type: DataTypes.TEXT,
+    },
+    img:{
+        type: DataTypes.STRING,
     }
 }, {
     sequelize,

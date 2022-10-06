@@ -50,11 +50,12 @@ if (document.querySelector('#accountDel')) {
   const genRecipe = async(event) => {
       event.preventDefault();
 
-      // console.log(`\x1b[32mRECIPE MAKER CLICKED\x1b[0m`);
-
-      const name = document.querySelector('#recipe-name').value.trim();
-      const ingredients = document.querySelector('#recipe-ingredients').value.trim();
-      const directions = document.querySelector('#recipe-directions').value.trim();
+    // console.log(`\x1b[32mRECIPE MAKER CLICKED\x1b[0m`);
+  
+    const name = document.querySelector('#recipe-name').value.trim();
+    const ingredients = document.querySelector('#recipe-ingredients').value.trim();
+    const directions = document.querySelector('#recipe-directions').value.trim();
+    const img = document.querySelector('#recipe-img').value.trim();
 
       var newRecipeForm = document.getElementById('newRecipeForm');
       var checkBoxes = newRecipeForm.querySelectorAll('input[type="checkbox"]');
@@ -78,11 +79,11 @@ if (document.querySelector('#accountDel')) {
       if (name && ingredients && directions && bookAssign[0]) {
           let response = await fetch('/recipes/createnewrecipe', {
               method: 'POST',
-              body: JSON.stringify({ name, ingredients, directions, bookAssign }),
+              body: JSON.stringify({ name, ingredients, directions, bookAssign, img }),
               headers: { 'Content-Type': 'application/json' },
           });
 
-          // console.log(JSON.stringify({ name, ingredients, directions }))
+          console.log(JSON.stringify({ name, ingredients, directions, img }))
 
           if (response.ok) {
               document.location.replace('/recipes');
@@ -92,7 +93,7 @@ if (document.querySelector('#accountDel')) {
       } else if (name && ingredients && directions) {
           let response = await fetch('/recipes/newrecipe', {
               method: 'POST',
-              body: JSON.stringify({ name, ingredients, directions }),
+              body: JSON.stringify({ name, ingredients, directions, img }),
               headers: { 'Content-Type': 'application/json' },
           });
 

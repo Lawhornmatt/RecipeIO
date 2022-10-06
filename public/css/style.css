@@ -261,6 +261,16 @@ a.nostyle:visited {
 .largoid{
     width: 400
 }
+
+.recipe-img{
+    width: 150px;
+    height:150px;
+}
+
+.recipe-img-home{
+    width: 250px;
+    height: 250px;
+}
     
     /*  =========================  
                   IDs
