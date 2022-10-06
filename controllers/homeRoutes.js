@@ -213,8 +213,6 @@ router.delete('/account/:id', async (req, res) => {
       }
 
       req.session.destroy(() => {
-        // res.json({ message: 'Logged out' })
-
         console.log('Session Destroyed');
     });
 
