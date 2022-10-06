@@ -244,6 +244,7 @@ a.nostyle:visited {
    border-radius:100px;
 }
 
+
 /* == Contact Us Classes == */
 .lightLinks {
     color: var(--main-font);
@@ -271,6 +272,68 @@ a.nostyle:visited {
     width: 250px;
     height: 250px;
 }
+
+/* Logo animation */
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+    width: 100vh;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.picture-logo{
+    overflow:hidden;
+    white-space:nowrap;
+    animation: showup 7s;
+    animation-fill-mode: forwards;
+}
+
+.text-logo{
+    margin-left:0px;
+    overflow:hidden;
+    animation: reveal 7s;
+    animation-fill-mode: forwards;
+  }
+
+.text-logo h1{
+    overflow:hidden;
+    margin-left: -390px;
+    animation: slidein 7s;
+    font-family: 'Sacramento', cursive;
+    animation-fill-mode: forwards;
+}
+
+  @keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:1;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:1;width:355px;}
+}
+
     
     /*  =========================  
                   IDs
