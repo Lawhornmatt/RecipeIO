@@ -7,10 +7,12 @@ Book.belongsTo(User, { foreignKey: 'user_id' });
 
 Book.belongsToMany(Recipe, {
     through: BookRecipe,
+    foreignKey: 'book_id',
 });
 
 Recipe.belongsToMany(Book, {
     through: BookRecipe,
+    foreignKey: 'recipe_id',
 });
 
 module.exports = {

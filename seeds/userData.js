@@ -1,6 +1,7 @@
 const { User } = require('../models');
 
 const userData = [{
+        id: 1,
         first_name: "Sal",
         last_name: "Ramop",
         username: "BillyBoy",
@@ -8,6 +9,7 @@ const userData = [{
         password: "pass"
     },
     {
+        id: 2,
         first_name: "Charlie",
         last_name: "Reynolds",
         username: "SmamboBeeb",
@@ -15,6 +17,7 @@ const userData = [{
         password: "pass"
     },
     {
+        id: 3,
         first_name: "Elizabeth",
         last_name: "Hopkins",
         username: "SnaowoReal",

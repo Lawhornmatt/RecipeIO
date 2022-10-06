@@ -1,5 +1,8 @@
 // ====================
   //      IMPORTS
+  const navbar = document.querySelector("#"); // line 34 on main
+  const navbarDropdown = document.querySelector("#navbarDropdown"); // line 53 on main
+
   // ====================
   
   //import * as X from "Y";
