@@ -19,16 +19,16 @@
         </div>
 
         {{#if accountData.length}}
-        <div class="col-md-6 project-list">
+        <div class="col-md-6 account">
           <h3>Current account:</h3>
 
         {{#each accountData as |accountData|}}
           <div class="row mb-2">
             <div class="col-md-8">
-              <h4><a href="/project/{{accountData.id}}">{{accountData.name}}</a></h4>
+              <h4><a href="/{{accountData.id}}">{{accountData.name}}</a></h4>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-sm btn-danger" data-id="{{accountData.id}}">DELETE</button>
+              <button class="btn btn-sm btn-danger" data-id="{{accountData.id}}">DELETE ACCOUNT</button>
             </div>
           </div>
         {{/each}}
