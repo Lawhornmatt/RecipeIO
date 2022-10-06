@@ -51,7 +51,7 @@
 
 
       if (name && ingredients && directions && bookAssign[0]) {
-          let response = await fetch('/recipes/newrecipe', {
+          let response = await fetch('/recipes/createnewrecipe', {
               method: 'POST',
               body: JSON.stringify({ name, ingredients, directions, bookAssign }),
               headers: { 'Content-Type': 'application/json' },
