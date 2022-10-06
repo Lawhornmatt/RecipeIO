@@ -1,4 +1,4 @@
-# House of Stark Project 2
+# RecipeIO
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Bugs](https://img.shields.io/github/issues/Lawhornmatt/RecipeIO/bug.svg)](https://github.com/Lawhornmatt/RecipeIO/issues)
 
@@ -24,7 +24,7 @@
 
 ## DESCRIPTION:
 
-This is the ReadMe for Group Two's project titled: House of Stark Project 2
+This is the ReadMe for House of Stark's project titled: RecipeIO
 
 This is a group project showcasing our knowledge of full-stack development
 

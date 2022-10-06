@@ -1,54 +1,17 @@
-{{!-- <div class = "create-book-page">
-    <div class = "card-header col-md-10">
-        <h2>Create Book</h2>
-        <form class = "create-recipe-form">
-        <label for ="recipe-book-name"> Book Name:</label><br><br>
-        <input type = "text" id="recipe-book-name"><br><br>
-        <label for ="recipes-in-book">Choose the recipes you would like to have in this book.</label><br><br>
-        <select id = "all-recipes" name="all-recipes">
-            <option value = "recipe"> Macaroni and Cheese</option>
-            <option value = "recipe"> Strawberry Shortcake</option>
-            <option value = "recipe"> Spaghetti and Meatballs</option>
-            <option value = "recipe"> Enchiladas Rojas</option>
-        </select>
-        <br><br>
-        <button type = "button">Add</button>
-</form>
-         <div class = "recipe-list" id = "recipe list">
-        <ul>
-  <li>Enchiladas</li>
-  <li>Chicken and Waffles</li>
-  <li>Cheesecake</li>
-</ul>
-    </div>
-    
-
-   
-    </div> --}}
-
 <main class="container-fluid mt-5">
   <div class="row justify-content-around">
 
-    <div class="col-12 mt-3">
+    <div class="col-4-sm mt-3">
       <div class = "card-header col-md-10 mainTang">
            <h2>Create Book</h2>
       </div>
-    <form class="create-recipe-form" id="newRecipeForm">
+    <form id="newRecipeForm">
 
-        <div class="row">
+        <div class="form-group">
           <label for ="recipe-name"> Book Name:</label><br>
-          <input type = "text" id="book-name" name="name" value="tHaTs aSpIcy mEaTbOl"/><br>
+          <input type = "text" id="book-name" name="name" value="New Book Name"/><br>
         </div>
 
-        {{!-- <label for ="recipes-in-book">Choose the recipes you would like to have in this book.</label><br><br>
-        <select id = "all-recipes" name="all-recipes">
-            <option value = "recipe"> Macaroni and Cheese</option>
-            <option value = "recipe"> Strawberry Shortcake</option>
-            <option value = "recipe"> Spaghetti and Meatballs</option>
-            <option value = "recipe"> Enchiladas Rojas</option>
-        </select> --}}
-        <span>The above code will eventually be uncommented and you will be able to assign</span>
-        <span>a pre-existing recipe to a book here</span>
 
         <div class="mainBufftan" id="makeBook">
           <button class="btn" type="submit">Create Book</button>
@@ -57,33 +20,3 @@
     </form>
   </div>
 </main>
-
-{{!-- <div class = "create-book-page">
-    <div class = "mainSmoke row justify-content-center  mb-5 cloud card-header col-md-10">
-      <h2>Create Book</h2>
-    </div><br><br>
-        <div class = "container-fluic  form-control-lg mainBufftan align-content-center ">
-        <form class = "create-recipe-form">
-          <label for ="recipe-book-name"> Book Name:</label><br>
-          <input type = "text" id="recipe-book-name"><br><br>
-          <label for ="recipes-in-book">Choose the recipes you would like to have in this book.</label><br><br>
-          <select id = "all-recipes" name="all-recipes">
-              <option value = "recipe"> Macaroni and Cheese</option>
-              <option value = "recipe"> Strawberry Shortcake</option>
-              <option value = "recipe"> Spaghetti and Meatballs</option>
-              <option value = "recipe"> Enchiladas Rojas</option>
-          </select>
-          <br><br>
-          <button type = "button" id="add">Add</button>
-        </form>
-         <div class = "recipe-list" id = "recipe list">Recipes in this book:
-        <ul><br>
-  <li>Enchiladas</li>
-  <li>Chicken and Waffles</li>
-  <li>Cheesecake</li>
-</ul>
-    </div>
-    
-</div>
-   
-</div> --}}
