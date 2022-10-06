@@ -8,7 +8,7 @@ const lunch = document.querySelector('#lunch-book').value.trim();
 const dinner = document.querySelector('#dinner-book').value.trim();
 
 
-submit.addEventListener("click", function(event){
+submit.addEventListener("click", function(event) {
     event.preventDefault();
     if (recipeName && ingredients) {
         const recipe = {

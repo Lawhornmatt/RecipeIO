@@ -9,13 +9,12 @@ router.get('/', withAuth, async(req, res) => {
         let { count, rows } = await Recipe.findAndCountAll({});
 
         const randRecipe = Math.floor(Math.random() * count) + 1;
-        // const recipeData = await Recipe.findByPk(randRecipe);
+        const recipeData = await Recipe.findByPk(randRecipe);
 
         // Serialize data so the template can read it
-        // let recipe = recipeData.get({ plain: true });
-
+        const recipe = recipeData.get({ plain: true });
         res.render('home', {
-            // recipe, commented out until recipe data is available
+            recipe,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
@@ -46,7 +45,6 @@ router.get('/register', withAuth, (req, res) => {
 
 // create user
 router.post('/register', async(req, res) => {
-    // console.log('POST /register | req.body: ' + req.body.firstName + ' ' + req.body.lastName + ' ' + req.body.username + ' ' + req.body.email + ' ' + req.body.password)
     try {
         const userData = await User.create({
             first_name: req.body.firstName,
@@ -55,8 +53,6 @@ router.post('/register', async(req, res) => {
             email: req.body.email,
             password: req.body.password,
         });
-
-        // console.log('POST /register | userData' + userData);
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -79,8 +75,6 @@ router.get('/account', withAuth, async(req, res) => {
 
         const accountData = desiredAccount.get({ plain: true });
 
-        // res.json(bookData);
-
         res.render('account', {
             accountData,
             logged_in: req.session.logged_in,
@@ -101,8 +95,6 @@ router.get('/account/:user', withAuth, async(req, res) => {
         });
 
         const accountData = desiredAccount.get({ plain: true });
-
-        // res.json(bookData);
 
         res.render('account', {
             accountData,

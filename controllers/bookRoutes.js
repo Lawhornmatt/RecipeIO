@@ -13,17 +13,21 @@ router.get('/', withAuth, async(req, res) => {
         });
 
         const bookData = allBooks.map((book) => book.get({ plain: true }));
-        // const bookData = allBooks.get({ plain: true });
-
-        // console.log('GET /books | bookData' + bookData);
-
-        // res.json(bookData);
 
         res.render('books', {
             bookData,
             logged_in: req.session.logged_in,
         });
-        // res.json(bookData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/newBook', withAuth, async(req, res) => {
+    try {
+        res.render('newBook', {
+            logged_in: req.session.logged_in,
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -46,8 +50,6 @@ router.get('/:id', withAuth, async(req, res) => {
         });
 
         const bookData = desiredBook.get({ plain: true });
-
-        // res.json(bookData);
 
         res.render('viewBook', {
             bookData,
