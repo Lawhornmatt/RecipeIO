@@ -2,7 +2,17 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Book, Recipe, User } = require('../models');
 const bcrypt = require('bcrypt')
+let nodemailer = require("nodemailer");
 
+// This is for testing email service
+var transport = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "537935e779b49b",
+      pass: "37eea9dd4ae0e8"
+    }
+  });
 
 router.get('/', withAuth, async(req, res) => {
     try {
@@ -57,6 +67,32 @@ router.post('/register', async(req, res) => {
         });
 
         // console.log('POST /register | userData' + userData);
+
+        // 
+        var mailOptions = {
+            from: '"Example Team" <from@example.com>',
+            to: `${userData.email}`,
+            subject: 'Welcome to RecipeIO!',
+            text: 'Hey there, it’s our first message sent with Nodemailer ;) ',
+            html: `<b>Hey there! </b>
+            <br> 
+            <p>Welcome to RecipeIO where all your recipes are a click away!</p>
+            <br>
+            <p>Just incase you forgot your log in info, here is it!</p>
+            <p>Name: ${userData.first_name}</p>
+            <p>Username: ${userData.username}</p>
+            <p>Email: ${userData.email}</p>
+            <p>Password: You got this!</p>
+            `
+        };
+        
+        // send some mail
+        transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+        });
 
         req.session.save(() => {
             req.session.user_id = userData.id;
