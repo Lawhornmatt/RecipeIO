@@ -17,6 +17,27 @@ const logout = async () => {
   
 document.querySelector('#logout').addEventListener('click', logout);
 
+  // ====================
+  //  DELETE ACCOUNT
+  // ====================
+  const deleteAccount = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+  
+      const response = await fetch(`/account/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to delete account');
+      }
+    }
+  };
+  document
+  .querySelector('.')
+  .addEventListener('', deleteAccount);
 
   // ====================
   //  GENERATE RECIPE
