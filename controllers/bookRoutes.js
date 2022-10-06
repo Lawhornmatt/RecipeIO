@@ -29,6 +29,39 @@ router.get('/', withAuth, async(req, res) => {
     }
 });
 
+// Look at the new book form
+router.get('/newbook',withAuth, (req, res) => {
+
+    try {
+        res.render('newBook', {
+          logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Insert a new book associated with user into the Book table
+router.post('/makenewbook',withAuth, async (req, res) =>{
+    try {
+        const bookData = await Book.create({
+          name: req.body.name,
+          user_id: req.session.user_id,
+        });
+  
+        // console.log('POST /register | bookData' + bookData);
+  
+        req.session.save(() => {
+          req.session.logged_in = true;
+  
+          console.log(`\x1b[32mstatus: 'ok', message: ${bookData.name} is created!\x1b[0m`);
+          res.redirect('/books');
+        });
+    }catch(err){
+        res.status(400).json(err);
+    }
+});
+
 //CHOSEN BOOK
 router.get('/:id', withAuth, async(req, res) => {
     try {
