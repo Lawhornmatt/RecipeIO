@@ -18,10 +18,10 @@ const loginPage = async (event) => {
       }
     }
 };
-
 document
     .querySelector('#logmein')
     .addEventListener('click', loginPage);
+    
   
 const signupPage = async (event) => {
     event.preventDefault();

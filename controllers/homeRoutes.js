@@ -230,5 +230,31 @@ router.post('/logout', (req, res) => {
     }
 });
 
+// Delete user
+router.delete('/account/:id', async (req, res) => {
+
+    let deleteID = req.session.user_id;
+
+
+    try {
+      const desiredAccount = await User.destroy( { 
+        where: {
+          id: deleteID
+      }});
+
+      if (!desiredAccount) {
+        res.status(404).json({ message: 'No account found with this id!' });
+        return;
+      }
+
+      req.session.destroy(() => {
+        console.log('Session Destroyed');
+    });
+
+      res.status(200).json(desiredAccount);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
 
 module.exports = router;
