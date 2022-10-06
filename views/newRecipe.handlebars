@@ -5,28 +5,27 @@
       <div class = "card-header col-md-10 mainTang">
         <h2>Create Recipe</h2>
       
-        {{!-- <form class = "create-recipe-form container-fluid" action="/matt/newrecipe" method="POST"> --}}
-        <form class = "create-recipe-form container-fluid" id="newRecipeForm">
+        <form id="newRecipeForm">
           <div class="col-12">
 
-            <div class="row">
+            <div class="form-group">
               <label for ="recipe-name"> Recipe Name:</label><br>
-              <input type = "text" id="recipe-name" name="name" value="Matts Test Recipe"/><br>
+              <input type = "text" class="form-control" id="recipe-name" name="name" value="Your New Recipe"/><br>
             </div>
 
-            <div class="row">
+            <div class="form-group">
               <label for ="recipe-ingredients">Ingredients:</label><br>
-              <input type ="text" id="recipe-ingredients" name="ingredients" value="No sleep and a bunch of hardwork"/><br>
+              <input type ="text" class="form-control" id="recipe-ingredients" name="ingredients" value="Put Your Ingredients Here"/><br>
             </div>
             
-            <div class="row">
+            <div class="form-group">
               <label for ="recipe-directions">Directions:</label><br>
-              <input type ="text" id="recipe-directions" name="directions" value="Mix it all together and whadaya get"><br>
+              <input type ="text" class="form-control" id="recipe-directions" name="directions" value="Put Your Instructions Here"><br>
             </div>
 
-            <div class="row">
+            <div class="form-group">
               <label for ="recipe-directions">IMG URL:</label><br>
-              <input type ="text" id="recipe-img" name="directions" value="https://bigoven-res.cloudinary.com/image/upload/h_320,w_320,c_fill/veggie-grilled-brussel-sprouts-a73b40.jpg"><br>
+              <input type ="text" class="form-control" id="recipe-img" name="directions" value="https://bigoven-res.cloudinary.com/image/upload/h_320,w_320,c_fill/veggie-grilled-brussel-sprouts-a73b40.jpg"><br>
             </div>
 
             {{#each preBookData as |book|}}
