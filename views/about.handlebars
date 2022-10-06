@@ -1,0 +1,82 @@
+  <main class="container-fluid mt-5">
+     <div class="row justify-content-around">
+      <div class="col-5 mt-1 mb-3">
+
+        <div class="row satBkgrnd justify-content-start rounded">
+          <div class="row satSmoke justify-content-center align-text-center cloud">
+            <p>About Us</p>
+          </div>
+          <div class="rounded mb-2 pl-3">
+            <br>
+            <p>
+              We wanted a place to store all your favourite recipes in your very own cookbooks! 
+              And then we wanted to share those cookbooks with friends and family as easily as possible.
+              So we made RecipeIO!
+            </p>
+          </div>
+        </div>
+
+        <div class="row mainBkgrnd justify-content-start mt-2 rounded">
+          <div class="satBufftan row justify-content-center align-text-center cloud">
+            <p>What we do</p>
+          </div>
+          <div class="rounded mb-2 pl-3">
+            <br>
+            <p>
+              Overall, we adopt MVC paradigm on this project. We use Node.js and Express.js to create a RESTful API, then use Handlebars.js as the template engine to build up the UI. We also use MySQL and the Sequelize ORM to take care database.
+            </p>
+          </div>
+        </div>
+
+        <div class="row satFont justify-content-start mt-2 rounded">
+          <div class="satRedwood row justify-content-center align-text-center cloud">
+            <p>How we work</p>
+          </div>
+          <div class="rounded mb-2 pl-3">
+            <br>
+            <p>
+              we had plan on how the recipes and books link to each other first, then schedule the to do list in project system on git hub. After that, we start to assign each team member on the to-do-works; then put works together to make our project work.
+            </p>
+          </div>
+        </div>
+
+        <div class="row mainTang justify-content-start mt-2 rounded">
+          <div class="mainSmoke row justify-content-center align-text-center cloud">
+            <p>Team</p>
+          </div>
+          <div class="rounded mb-2 pl-3">
+            <br>
+            <p>
+              Alexandra, Andrew, Joseph, Matty, Nicholas, Samuel, Thomas
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- I recommend replacing this static image with
+      a slideshow carousel of food pics, e.g.:
+      https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+      <div class="col-md-auto align-self-start justify-content-start">
+
+        <div class="row satFont justify-content-center align-items-start imgBorder">
+          <img width="1200" height="1600" src="/images/NewLogo.png" alt="Some cute cozy recipe photo" class="idealIMGsmol align-self-center">
+          <h1 class="align-self-center ourLogo">Contact Us</h1>
+        </div>
+
+        <div class="undrBkgrnd mt-5 p-2 rounded">
+          <form class="d-flex flex-column justify-content-between" id="contactForm">
+            <p>Please provide us with:</p>
+            <input type="text" id="customerName" name="customerName" placeholder="Your name..">
+
+            <input type="text" id="customerEmail" name="customerEmail" placeholder="Your email..">
+
+            <textarea id="customerMssg" name="customerMssg" placeholder="Tell us about..." class="custMssg"></textarea>
+            
+            <input type="submit" id="submit" value="Submit" class="submitButton">
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <script src="/libs/contact.js"></script>
+  </main>

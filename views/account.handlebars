@@ -1,0 +1,26 @@
+  <main class="container-fluid mt-5">
+     <div class="row justify-content-around">
+      <div class="col-5 mt-1 mb-3">
+
+        <div class="row justify-content-start rounded">
+          <div class="row satSmoke justify-content-center align-text-center cloudTitle">
+            <p >{{accountData.username}}</p>
+          </div>
+        </div>
+
+        <div class="row mainBkgrnd justify-content-start mt-2 rounded">
+
+          <div class="rounded mb-2 pl-3">
+            <br>
+            <p>Your First Name: {{accountData.first_name}}</p>
+            <p>Your Last Name: {{accountData.last_name}}</p>
+            <p>Your Email: {{accountData.email}}</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" id="accountDel" data-id="{{accountData.id}}">DELETE ACCOUNT</button>
+        </div>
+
+    </div>
+  </main>
