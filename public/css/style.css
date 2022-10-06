@@ -252,6 +252,11 @@ a.nostyle:visited {
     width: 150px;
     height:150px;
 }
+
+.recipe-img-home{
+    width: 250px;
+    height: 250px;
+}
     
     /*  =========================  
                   IDs
