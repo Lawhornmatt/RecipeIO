@@ -35,9 +35,13 @@
       }
     }
   };
-  document
-  .querySelector('.account')
-  .addEventListener('click', deleteAccount);
+
+if (document.querySelector('#accountDel')) {
+    document
+        .querySelector('#accountDel')
+        .addEventListener('click', deleteAccount);
+}
+
 
   // ====================
   //  GENERATE RECIPE
