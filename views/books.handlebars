@@ -1,78 +1,27 @@
-  <main class="container-fluid mt-5">
-     <div class="row justify-content-around">
-      <div class="col-5 rounded mt-1 mb-3">
-
-        <div class="undrRedwood row justify-content-center align-items-center mb-5 cloud">
-          <p>Your <br> Cookbooks</p>
-        </div>
-
-        <div class="row mainBufftan justify-content-center mb-5 ml-2 cloudSml py-4" id="cookbookStats">
-          <div class="row satFont d-flex flex-column align-items-center p-2 rounded">
-            <p>User Bake Stats: <br></p>
-            <ol>
-              <li>Total Bakes(tm):  5</li>
-              <li>Weekly New Bakers:  10</li>
-              <li>Highest Rating:  4.8/5</li>
-              <li>Hottest Cookbook: <br> Grandma's Recipes</li>
-              <li>Hottest recipe: <br> Apple Pie</li>
-            </ol>
-          </div>
-        </div>
-
+<main class="container-fluid mt-5">
+   <div class="row justify-content-around">
+    <div class="col-5 rounded mt-1 mb-3">
+      <div class="undrRedwood row justify-content-center align-items-center mb-5 cloud">
+        <p>Your <br> Cookbooks</p>
       </div>
-
-
-
-      <div class="container">
-    <div class="row">
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2"> Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2"> Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>      
-        <div class="col-xs-12 shelf hidden-md hidden-lg"></div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>  
-        <div class="col-xs-12 shelf"></div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>  
-        <div class="col-xs-12 shelf hidden-md hidden-lg"></div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>
-        <div class="col-xs-4 col-md-2">Book Name
-          <a href=""><img src="http://placehold.it/150x190/e8117f/fff&amp;text=Book%20Title" class="img-responsive book"></a>
-       	</div>  
-        <div class="col-xs-12 shelf"></div>
-    </div>
-</div> 
-
-      <div class="col-6 mt-3">
-        
-        {{#each bookData as |book|}}
-        {{> userbooks}}
-        {{/each}}
+      <div class="row mainBufftan justify-content-center mb-5 ml-2 cloudSml py-4" id="cookbookStats">
+        <div class="row satFont d-flex flex-column align-items-center p-2 rounded">
+          <p>User Bake Stats: <br></p>
+          <ol>
+            <li>Total Bakes(tm):  5</li>
+            <li>Weekly New Bakers:  10</li>
+            <li>Highest Rating:  4.8/5</li>
+            <li>Hottest Cookbook: <br> Grandma's Recipes</li>
+            <li>Hottest recipe: <br> Apple Pie</li>
+          </ol>
+        </div>
       </div>
     </div>
-  </main>
+    <div class="col-6 mt-3">
+      
+      {{#each bookData as |book|}}
+      {{> userbooks}}
+      {{/each}}
+    </div>
+  </div>
+</main>
