@@ -1,56 +1,70 @@
 # House of Stark Project 2
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Bugs](https://img.shields.io/github/issues/Lawhornmatt/RecipeIO/bug.svg)](https://github.com/Lawhornmatt/RecipeIO/issues)
 
 ## TABLE OF CONTENTS:
 
-* [Description](#DESCRIPTION)
+* [Description](#description)
 
-* [Installation guide](#INSTALLATION) 
+* [Installation guide](#installation) 
 
-* [Usage Info](#USAGEINFO) 
+* [Usage Info](#usage) 
 
-* [Contribution Guidelines](#CONTRIBUTIONGUIDELINES) 
+* [Contribution Guidelines](#contribution) 
 
-* [Testing Instructions](#TESTINSTRUCTIONS) 
+* [Testing Instructions](#testing) 
 
-* [Questions](#QUESTIONS)
+* [Questions](#questions)
 
-* [Credits](#CREDIT)
+* [Credits](#credit)
 
-* [License](#LICENSE)
+* [License](#license)
 
+<a name="description"></a>
 
 ## DESCRIPTION:
 
 This is the ReadMe for Group Two's project titled: House of Stark Project 2
 
-This is a group project showcasing our knowledge of back-end systems
+This is a group project showcasing our knowledge of full-stack development
 
-<img src='INSERT PATH TO SCREENSHOT HERE' alt='A screenshot of House of Stark Project 2'/>
+<img src='./public/images/6-10-22_RIOscreenshot.png' alt='A screenshot of the homepage of House of Starks Project 2: RecipeIO'/>
+
+<a name="installation"></a>
 
 ## INSTALLATION:
 
-Visit it on Heroku to try it out
+Visit it on Heroku to try it out! <a target="_blank" rel="noopener noreferrer" href="https://recipeio-project2.herokuapp.com/login">Check it out here!</a>
 
-## USAGE INFO:
+<a name="usage"></a>
 
-TBD
+## USAGE:
 
-## CONTRIBUTION GUIDELINES:
+Upon visiting our website, unless logged in already, you will be taken to the log in page. Here you can log in or create a new account. Once logged in, you'll be taken to the homepage. This page features a random recipe from our community of chefs to check out. From the nav bar at the top, one can see their account, read more about the site and our team, view their recipe books or make new ones, view all their recipes, and make new recipes. 
+
+To make a new recipe, choose it's name, its ingredients, its instructions, and input a URL to a picture of the dish. One must assign it at least one book from the checkboxes! If there are no checkboxes, click on 'new books' and make a new one before making a new recipe.
+
+<a name="contribution"></a>
+
+## CONTRIBUTION:
 
 Sorry, this project is privately maintained.
 
-## TEST INSTRUCTIONS:
+<a name="testing"></a>
+
+## TESTING:
 
 Thank you, but no testing is needed at this time.
+
+<a name="questions"></a>
 
 ## QUESTIONS:
 
 If you have any questions,
 
-you can find my GitHub here: https://github.com/Lawhornmatt
+you can contact me <a target="_blank" rel="noopener noreferrer" href="https://github.com/Lawhornmatt">at my GitHub</a> or email me here: fake@notreal.com
 
-or email me here: fake@notreal.com
+<a name="credit"></a>
 
 ## CREDIT:
 
@@ -58,14 +72,22 @@ This project was made in 2022 by Group Two
 
 This project was made through the contributions of:
 
-      House of Stark is: 
-      *Matt Lawhorn 
-      *Nick 
-      *Alex
-      *Andrew
-      *Joseph
-      *Samuel
-      *Thomas
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/alexyn26">Alexandra Najera</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/Chueg">Andrew Johnson</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/josephpicardat">Joseph Picardat</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/Lawhornmatt">Matthew Lawhorn</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/RelentlessNC">Nicholas Conklin</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/sky19930112">Samuel Hsu</a>
+
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/Thomasple13">Thomas Le</a>
+
+<a name="license"></a>
 
 ## LICENSE:
 
