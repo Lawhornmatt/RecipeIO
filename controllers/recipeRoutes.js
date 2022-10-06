@@ -51,33 +51,6 @@ router.get('/newrecipe', withAuth, async(req, res) => {
     }
 });
 
-//INDIVIDUAL RECIPE
-router.get('/:id', withAuth, async(req, res) => {
-    try {
-        const allRecipes = await Recipe.findOne({
-            where: {
-                id: req.params.id
-            },
-        });
-
-        const recipesData = allRecipes.get({ plain: true });
-
-        // res.json(recipesData);
-
-        res.render('oneRecipe', {
-            recipesData,
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// ===  NEW RECIPE ROUTES ===
-
-// == Look at the Recipe Form 
-
-
 // == Creates a new recipe and it's associated BookRecipe tag 
 router.post('/createnewrecipe', withAuth, async(req, res) => {
     console.log(`\x1b[32mPOST /createnewrecipe | req.body\x1b[0m` + JSON.stringify(req.body));
@@ -152,5 +125,32 @@ router.post('/editbook', withAuth, async(req, res) => {
         res.status(400).json(err);
     }
 });
+
+//INDIVIDUAL RECIPE
+router.get('/:id', withAuth, async(req, res) => {
+    try {
+        const allRecipes = await Recipe.findOne({
+            where: {
+                id: req.params.id
+            },
+        });
+
+        const recipesData = allRecipes.get({ plain: true });
+
+        // res.json(recipesData);
+
+        res.render('oneRecipe', {
+            recipesData,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// ===  NEW RECIPE ROUTES ===
+
+// == Look at the Recipe Form 
+
 
 module.exports = router;

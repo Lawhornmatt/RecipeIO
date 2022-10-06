@@ -72,7 +72,7 @@
 
 
       if (name && ingredients && directions && bookAssign[0]) {
-          let response = await fetch('/recipes/newrecipe', {
+          let response = await fetch('/recipes/createnewrecipe', {
               method: 'POST',
               body: JSON.stringify({ name, ingredients, directions, bookAssign }),
               headers: { 'Content-Type': 'application/json' },
@@ -123,9 +123,8 @@
 
       const name = document.querySelector('#book-name').value.trim();
 
-
       if (name) {
-          let response = await fetch('/newbook', {
+          let response = await fetch('/books/makenewbook', {
               method: 'POST',
               body: JSON.stringify({ name }),
               headers: { 'Content-Type': 'application/json' },
