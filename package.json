@@ -4,8 +4,7 @@
     "description": "Full MVP Product + Heroku Deployment",
     "main": "server.js",
     "scripts": {
-        "start": "node seeds/seed.js",
-        "web": "node server.js"
+        "start": "node server.js"
     },
     "keywords": [],
     "author": "House of Stark",
